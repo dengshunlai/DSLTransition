@@ -15,6 +15,9 @@
 		DDD0D57F1DBE666A00C06C5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD0D57D1DBE666A00C06C5B /* LaunchScreen.storyboard */; };
 		DDD0D58A1DBE666A00C06C5B /* DSLTransitionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5891DBE666A00C06C5B /* DSLTransitionTests.m */; };
 		DDD0D5951DBE666A00C06C5B /* DSLTransitionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5941DBE666A00C06C5B /* DSLTransitionUITests.m */; };
+		DDD0D5A51DBE671F00C06C5B /* UIViewController+DSLTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5A41DBE671F00C06C5B /* UIViewController+DSLTransition.m */; };
+		DDD0D5AC1DBE675A00C06C5B /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5AA1DBE675A00C06C5B /* NextViewController.m */; };
+		DDD0D5AD1DBE675A00C06C5B /* NextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD0D5AB1DBE675A00C06C5B /* NextViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,11 @@
 		DDD0D5901DBE666A00C06C5B /* DSLTransitionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSLTransitionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDD0D5941DBE666A00C06C5B /* DSLTransitionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSLTransitionUITests.m; sourceTree = "<group>"; };
 		DDD0D5961DBE666A00C06C5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDD0D5A31DBE671F00C06C5B /* UIViewController+DSLTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DSLTransition.h"; sourceTree = "<group>"; };
+		DDD0D5A41DBE671F00C06C5B /* UIViewController+DSLTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DSLTransition.m"; sourceTree = "<group>"; };
+		DDD0D5A91DBE675A00C06C5B /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextViewController.h; sourceTree = "<group>"; };
+		DDD0D5AA1DBE675A00C06C5B /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextViewController.m; sourceTree = "<group>"; };
+		DDD0D5AB1DBE675A00C06C5B /* NextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NextViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +89,7 @@
 		DDD0D5631DBE666A00C06C5B = {
 			isa = PBXGroup;
 			children = (
-				DDD0D56E1DBE666A00C06C5B /* DSLTransition */,
+				DDD0D56E1DBE666A00C06C5B /* DSLTransitionExample */,
 				DDD0D5881DBE666A00C06C5B /* DSLTransitionTests */,
 				DDD0D5931DBE666A00C06C5B /* DSLTransitionUITests */,
 				DDD0D56D1DBE666A00C06C5B /* Products */,
@@ -98,20 +106,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DDD0D56E1DBE666A00C06C5B /* DSLTransition */ = {
+		DDD0D56E1DBE666A00C06C5B /* DSLTransitionExample */ = {
 			isa = PBXGroup;
 			children = (
+				DDD0D5A21DBE669200C06C5B /* DSLTransition */,
 				DDD0D5721DBE666A00C06C5B /* AppDelegate.h */,
 				DDD0D5731DBE666A00C06C5B /* AppDelegate.m */,
 				DDD0D5751DBE666A00C06C5B /* ViewController.h */,
 				DDD0D5761DBE666A00C06C5B /* ViewController.m */,
+				DDD0D5A91DBE675A00C06C5B /* NextViewController.h */,
+				DDD0D5AA1DBE675A00C06C5B /* NextViewController.m */,
+				DDD0D5AB1DBE675A00C06C5B /* NextViewController.xib */,
 				DDD0D5781DBE666A00C06C5B /* Main.storyboard */,
 				DDD0D57B1DBE666A00C06C5B /* Assets.xcassets */,
 				DDD0D57D1DBE666A00C06C5B /* LaunchScreen.storyboard */,
 				DDD0D5801DBE666A00C06C5B /* Info.plist */,
 				DDD0D56F1DBE666A00C06C5B /* Supporting Files */,
 			);
-			path = DSLTransition;
+			path = DSLTransitionExample;
 			sourceTree = "<group>";
 		};
 		DDD0D56F1DBE666A00C06C5B /* Supporting Files */ = {
@@ -138,6 +150,15 @@
 				DDD0D5961DBE666A00C06C5B /* Info.plist */,
 			);
 			path = DSLTransitionUITests;
+			sourceTree = "<group>";
+		};
+		DDD0D5A21DBE669200C06C5B /* DSLTransition */ = {
+			isa = PBXGroup;
+			children = (
+				DDD0D5A31DBE671F00C06C5B /* UIViewController+DSLTransition.h */,
+				DDD0D5A41DBE671F00C06C5B /* UIViewController+DSLTransition.m */,
+			);
+			path = DSLTransition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDD0D57F1DBE666A00C06C5B /* LaunchScreen.storyboard in Resources */,
+				DDD0D5AD1DBE675A00C06C5B /* NextViewController.xib in Resources */,
 				DDD0D57C1DBE666A00C06C5B /* Assets.xcassets in Resources */,
 				DDD0D57A1DBE666A00C06C5B /* Main.storyboard in Resources */,
 			);
@@ -276,8 +298,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD0D5AC1DBE675A00C06C5B /* NextViewController.m in Sources */,
 				DDD0D5771DBE666A00C06C5B /* ViewController.m in Sources */,
 				DDD0D5741DBE666A00C06C5B /* AppDelegate.m in Sources */,
+				DDD0D5A51DBE671F00C06C5B /* UIViewController+DSLTransition.m in Sources */,
 				DDD0D5711DBE666A00C06C5B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,7 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QTRV8G9WAU;
-				INFOPLIST_FILE = DSLTransition/Info.plist;
+				INFOPLIST_FILE = DSLTransitionExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -440,7 +464,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QTRV8G9WAU;
-				INFOPLIST_FILE = DSLTransition/Info.plist;
+				INFOPLIST_FILE = DSLTransitionExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
