@@ -15,9 +15,3 @@
 @property (assign, nonatomic) NSInteger dsl_transitionType;
 
 @end
-
-@interface DSLAnimatedTransitioning : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate>
-
-@property (assign, nonatomic) NSInteger type;
-
-@end

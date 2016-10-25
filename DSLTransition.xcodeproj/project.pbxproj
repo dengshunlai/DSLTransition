@@ -18,6 +18,7 @@
 		DDD0D5A51DBE671F00C06C5B /* UIViewController+DSLTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5A41DBE671F00C06C5B /* UIViewController+DSLTransition.m */; };
 		DDD0D5AC1DBE675A00C06C5B /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5AA1DBE675A00C06C5B /* NextViewController.m */; };
 		DDD0D5AD1DBE675A00C06C5B /* NextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD0D5AB1DBE675A00C06C5B /* NextViewController.xib */; };
+		DDDE0E281DBFA89F004DADCC /* DSLAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDE0E271DBFA89F004DADCC /* DSLAnimatedTransitioning.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		DDD0D5A91DBE675A00C06C5B /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextViewController.h; sourceTree = "<group>"; };
 		DDD0D5AA1DBE675A00C06C5B /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextViewController.m; sourceTree = "<group>"; };
 		DDD0D5AB1DBE675A00C06C5B /* NextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NextViewController.xib; sourceTree = "<group>"; };
+		DDDE0E261DBFA89F004DADCC /* DSLAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLAnimatedTransitioning.h; sourceTree = "<group>"; };
+		DDDE0E271DBFA89F004DADCC /* DSLAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLAnimatedTransitioning.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 			children = (
 				DDD0D5A31DBE671F00C06C5B /* UIViewController+DSLTransition.h */,
 				DDD0D5A41DBE671F00C06C5B /* UIViewController+DSLTransition.m */,
+				DDDE0E261DBFA89F004DADCC /* DSLAnimatedTransitioning.h */,
+				DDDE0E271DBFA89F004DADCC /* DSLAnimatedTransitioning.m */,
 			);
 			path = DSLTransition;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 			files = (
 				DDD0D5AC1DBE675A00C06C5B /* NextViewController.m in Sources */,
 				DDD0D5771DBE666A00C06C5B /* ViewController.m in Sources */,
+				DDDE0E281DBFA89F004DADCC /* DSLAnimatedTransitioning.m in Sources */,
 				DDD0D5741DBE666A00C06C5B /* AppDelegate.m in Sources */,
 				DDD0D5A51DBE671F00C06C5B /* UIViewController+DSLTransition.m in Sources */,
 				DDD0D5711DBE666A00C06C5B /* main.m in Sources */,
