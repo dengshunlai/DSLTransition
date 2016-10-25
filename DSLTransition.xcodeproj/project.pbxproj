@@ -228,7 +228,7 @@
 				TargetAttributes = {
 					DDD0D56B1DBE666A00C06C5B = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = QTRV8G9WAU;
+						DevelopmentTeam = UJ6ZZAPFYZ;
 						ProvisioningStyle = Automatic;
 					};
 					DDD0D5841DBE666A00C06C5B = {
@@ -451,7 +451,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QTRV8G9WAU;
+				DEVELOPMENT_TEAM = UJ6ZZAPFYZ;
 				INFOPLIST_FILE = DSLTransitionExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLTransition;
@@ -463,7 +463,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QTRV8G9WAU;
+				DEVELOPMENT_TEAM = UJ6ZZAPFYZ;
 				INFOPLIST_FILE = DSLTransitionExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLTransition;
@@ -540,6 +540,7 @@
 				DDD0D59B1DBE666A00C06C5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DDD0D59C1DBE666A00C06C5B /* Build configuration list for PBXNativeTarget "DSLTransitionTests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +549,7 @@
 				DDD0D59E1DBE666A00C06C5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DDD0D59F1DBE666A00C06C5B /* Build configuration list for PBXNativeTarget "DSLTransitionUITests" */ = {
 			isa = XCConfigurationList;
@@ -556,6 +558,7 @@
 				DDD0D5A11DBE666A00C06C5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,4 +10,14 @@
 
 @interface UIViewController (DSLTransition)
 
+@property (assign, nonatomic) BOOL dsl_transitionEnabled;
+
+@property (assign, nonatomic) NSInteger dsl_transitionType;
+
+@end
+
+@interface DSLAnimatedTransitioning : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate>
+
+@property (assign, nonatomic) NSInteger type;
+
 @end

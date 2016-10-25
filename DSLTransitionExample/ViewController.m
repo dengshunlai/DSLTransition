@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "NextViewController.h"
+#import "UIViewController+DSLTransition.h"
 
 @interface ViewController ()
 
@@ -16,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 
@@ -25,5 +27,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)present:(UIButton *)sender {
+    self.dsl_transitionEnabled = YES;
+    NextViewController *vc = [[NextViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 @end
