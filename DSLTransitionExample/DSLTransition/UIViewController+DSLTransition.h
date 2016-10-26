@@ -10,8 +10,14 @@
 
 @interface UIViewController (DSLTransition)
 
+/**
+ 是否开启自定义转场
+ */
 @property (assign, nonatomic) BOOL dsl_transitionEnabled;
 
+/**
+ 转场类型
+ */
 @property (assign, nonatomic) NSInteger dsl_transitionType;
 
 @end

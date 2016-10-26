@@ -12,4 +12,8 @@
 
 @property (assign, nonatomic) NSInteger type;
 
+@property (weak, nonatomic) UIViewController *presentViewController;
+
+- (instancetype)initWithPresentViewController:(UIViewController *)presentViewController;
+
 @end

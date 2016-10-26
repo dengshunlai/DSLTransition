@@ -18,7 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //开启自定义转场
+    self.dsl_transitionEnabled = YES;
+    //关闭
+    //self.dsl_transitionEnabled = NO;
 }
 
 
@@ -27,8 +30,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)present:(UIButton *)sender {
-    self.dsl_transitionEnabled = YES;
+- (IBAction)type0:(UIButton *)sender {
+    //转场类型
+    self.dsl_transitionType = 0;
+    NextViewController *vc = [[NextViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)type1:(UIButton *)sender {
+    self.dsl_transitionType = 1;
     NextViewController *vc = [[NextViewController alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
 }

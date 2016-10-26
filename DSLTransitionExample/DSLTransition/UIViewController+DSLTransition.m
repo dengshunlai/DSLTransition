@@ -67,6 +67,7 @@
     if (self.dsl_transitionEnabled) {
         viewController.transitioningDelegate = self.dsl_animatedTransitioning;
         self.dsl_animatedTransitioning.type = self.dsl_transitionType;
+        self.dsl_animatedTransitioning.presentViewController = viewController;
     } else {
         viewController.transitioningDelegate = nil;
     }

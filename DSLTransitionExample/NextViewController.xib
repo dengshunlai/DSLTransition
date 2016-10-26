@@ -22,17 +22,9 @@
                         <action selector="dismiss:" destination="-1" eventType="touchUpInside" id="vkQ-QE-MDX"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHR-xw-TGg">
-                    <state key="normal" title="present"/>
-                    <connections>
-                        <action selector="present:" destination="-1" eventType="touchUpInside" id="E6h-vH-jS5"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="0.6929530201342281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="tHR-xw-TGg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JEj-4J-I3a"/>
-                <constraint firstItem="tHR-xw-TGg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="dEk-FM-EsG"/>
                 <constraint firstItem="ZBF-NA-tqV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nDs-5v-vhN"/>
                 <constraint firstItem="ZBF-NA-tqV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="skt-cl-ebb"/>
             </constraints>

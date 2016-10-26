@@ -14,10 +14,20 @@
 @interface DSLAnimatedTransitioning ()
 
 @property (assign, nonatomic) BOOL isPresent;
+@property (assign, nonatomic) BOOL isInteractive;
 
 @end
 
 @implementation DSLAnimatedTransitioning
+
+- (instancetype)initWithPresentViewController:(UIViewController *)presentViewController
+{
+    self = [super init];
+    if (self) {
+        _presentViewController = presentViewController;
+    }
+    return self;
+}
 
 #pragma mark - UIViewControllerAnimatedTransitioning
 
@@ -40,17 +50,19 @@
             bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
             bgView.alpha = 0;
             bgView.tag = 2000;
-            UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:YES];
+            UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(gestureType0:)];
+            [bgView addGestureRecognizer:pan];
             
             toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
-            [containerView addSubview:fromViewSnapshot];
             [containerView addSubview:bgView];
             [containerView addSubview:toView];
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 bgView.alpha = 1;
-                toView.frame = CGRectMake(0, CGRectGetMaxY(fromView.frame) - 350, kScreenWidth, kScreenHeight);
+                toView.frame = CGRectMake(0, kScreenHeight - 280, kScreenWidth, kScreenHeight);
             } completion:^(BOOL finished) {
+                UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:YES];
+                [containerView insertSubview:fromViewSnapshot belowSubview:bgView];
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         } else {
@@ -67,11 +79,42 @@
                 bgView.alpha = 0;
                 fromView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
             } completion:^(BOOL finished) {
-                NSLog(@"%@",containerView.subviews);
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         }
     } else if (_type == 1) {
+        if (_isPresent) {
+            toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
+            [containerView addSubview:toView];
+            
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                fromView.transform = CGAffineTransformScale(fromView.transform, 0.85, 0.85);
+                toView.frame = CGRectMake(0, kScreenHeight - 280, kScreenWidth, kScreenHeight);
+            } completion:^(BOOL finished) {
+                UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:NO];
+                fromViewSnapshot.tag = 2000;
+                fromViewSnapshot.transform = CGAffineTransformScale(fromViewSnapshot.transform, 0.85, 0.85);
+                [containerView insertSubview:fromViewSnapshot belowSubview:toView];
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureType1:)];
+                [fromViewSnapshot addGestureRecognizer:tap];
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            }];
+        } else {
+            UIView *toViewSnapshot;
+            for (UIView *view in containerView.subviews) {
+                if (view.tag == 2000) {
+                    toViewSnapshot = view;
+                }
+            }
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                toViewSnapshot.transform = CGAffineTransformIdentity;
+                toView.transform = CGAffineTransformIdentity;
+                fromView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
+            } completion:^(BOOL finished) {
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            }];
+        }
+    } else {
         ;
     }
 }
@@ -97,7 +140,60 @@
 
 - (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator
 {
-    return nil;
+    switch (_type) {
+        case 0:
+            return _isInteractive ? self : nil;
+            break;
+        case 1:
+            return nil;
+            break;
+        default:
+            return nil;
+            break;
+    }
+}
+
+#pragma mark - Action
+
+- (void)gestureType0:(UIPanGestureRecognizer *)pan
+{
+    switch (pan.state) {
+        case UIGestureRecognizerStateBegan:
+            _isInteractive = YES;
+            [_presentViewController dismissViewControllerAnimated:YES completion:nil];
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            CGPoint translation = [pan translationInView:pan.view];
+            CGFloat percent = translation.y / 150.0;
+            if (percent >= 1) {
+                [self finishInteractiveTransition];
+            } else {
+                [self updateInteractiveTransition:percent];
+            }
+        }
+            break;
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+        {
+            CGPoint translation = [pan translationInView:pan.view];
+            CGFloat percent = translation.y / 150.0;
+            if (percent > 0.50) {
+                [self finishInteractiveTransition];
+            } else {
+                [self cancelInteractiveTransition];
+            }
+            _isInteractive = NO;
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)gestureType1:(UITapGestureRecognizer *)tap
+{
+    [_presentViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

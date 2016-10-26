@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jhd-OU-Zf0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="s13-hJ-JaT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -19,28 +19,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxJ-9F-ef2">
-                                <state key="normal" title="present"/>
+                                <state key="normal" title="type=1"/>
                                 <connections>
-                                    <action selector="present:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yIr-c6-Y9q"/>
+                                    <action selector="type1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cHr-4M-2Yh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7I-pP-cyB">
+                                <state key="normal" title="type=0"/>
+                                <connections>
+                                    <action selector="type0:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jVF-eg-cKG"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fxJ-9F-ef2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="QG1-mb-bnw"/>
+                            <constraint firstItem="f7I-pP-cyB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QSL-w2-2g1"/>
                             <constraint firstItem="fxJ-9F-ef2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Udh-RA-Kr6"/>
+                            <constraint firstItem="f7I-pP-cyB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="avw-R4-cbL"/>
+                            <constraint firstItem="fxJ-9F-ef2" firstAttribute="top" secondItem="f7I-pP-cyB" secondAttribute="bottom" constant="30" id="s8l-5p-HIM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Demo" id="AFw-Tp-79y"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882" y="-544"/>
+            <point key="canvasLocation" x="1820" y="-544.67766116941539"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--首页-->
         <scene sceneID="VWK-SD-PYA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jhd-OU-Zf0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="首页" id="rVk-wn-huU"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="5js-Nc-Ao2">
@@ -53,6 +62,23 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPh-rJ-Mvw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1095.2" y="-543.77811094452773"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="p66-w5-Ldt">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="s13-hJ-JaT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="dXc-eh-fYk">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Jhd-OU-Zf0" kind="relationship" relationship="viewControllers" id="wnI-89-TH9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qdw-tK-TzF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="156" y="-543.77811094452773"/>
         </scene>

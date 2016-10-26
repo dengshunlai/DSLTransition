@@ -28,10 +28,4 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)present:(UIButton *)sender {
-    NextViewController *vc = [[NextViewController alloc] init];
-    [self presentViewController:vc animated:YES completion:nil];
-}
-
-
 @end
