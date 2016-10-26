@@ -12,6 +12,9 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView1;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView2;
+
 @end
 
 @implementation ViewController
@@ -41,6 +44,12 @@
     self.dsl_transitionType = 1;
     NextViewController *vc = [[NextViewController alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)tagImageView:(UITapGestureRecognizer *)sender {
+//    self.dsl_transitionType = 2;
+//    self.dsl_transitionBeginFrame = sender.view.
+    NSLog(@"%s",__func__);
 }
 
 @end

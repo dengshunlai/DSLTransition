@@ -20,4 +20,6 @@
  */
 @property (assign, nonatomic) NSInteger dsl_transitionType;
 
+@property (assign, nonatomic) CGRect dsl_transitionBeginFrame;
+
 @end

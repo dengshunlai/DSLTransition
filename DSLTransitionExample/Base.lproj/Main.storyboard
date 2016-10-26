@@ -30,20 +30,59 @@
                                     <action selector="type0:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jVF-eg-cKG"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9PQ-3s-Hz8">
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="152" id="4GW-cL-fHb"/>
+                                    <constraint firstAttribute="width" constant="122" id="c6b-os-yan"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="FXB-Ec-ZFT" appends="YES" id="KmH-3i-Ckt"/>
+                                </connections>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="KuN-Ah-QuY">
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="152" id="5Cb-Cb-rWm"/>
+                                    <constraint firstAttribute="width" constant="122" id="LJl-9X-bTD"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="k6X-1b-VfH" appends="YES" id="yzK-08-Kp0"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="9PQ-3s-Hz8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="6BF-1d-ZlL"/>
+                            <constraint firstAttribute="trailing" secondItem="KuN-Ah-QuY" secondAttribute="trailing" constant="15" id="Mk1-hy-ocA"/>
                             <constraint firstItem="f7I-pP-cyB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QSL-w2-2g1"/>
                             <constraint firstItem="fxJ-9F-ef2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Udh-RA-Kr6"/>
+                            <constraint firstItem="KuN-Ah-QuY" firstAttribute="centerY" secondItem="9PQ-3s-Hz8" secondAttribute="centerY" id="aH0-Xh-FQz"/>
                             <constraint firstItem="f7I-pP-cyB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="avw-R4-cbL"/>
+                            <constraint firstItem="9PQ-3s-Hz8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="133" id="puv-Jv-9wM"/>
+                            <constraint firstItem="KuN-Ah-QuY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="133" id="rKa-cN-tgA"/>
                             <constraint firstItem="fxJ-9F-ef2" firstAttribute="top" secondItem="f7I-pP-cyB" secondAttribute="bottom" constant="30" id="s8l-5p-HIM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Demo" id="AFw-Tp-79y"/>
+                    <connections>
+                        <outlet property="imageView1" destination="9PQ-3s-Hz8" id="KIH-is-ziV"/>
+                        <outlet property="imageView2" destination="KuN-Ah-QuY" id="Zr7-0Y-TnB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FXB-Ec-ZFT">
+                    <connections>
+                        <action selector="tagImageView:" destination="BYZ-38-t0r" id="U22-Ok-NnB"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="k6X-1b-VfH">
+                    <connections>
+                        <action selector="tagImageView:" destination="BYZ-38-t0r" id="7L5-eC-7si"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1820" y="-544.67766116941539"/>
+            <point key="canvasLocation" x="1820" y="-545.57721139430294"/>
         </scene>
         <!--首页-->
         <scene sceneID="VWK-SD-PYA">
@@ -71,6 +110,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="s13-hJ-JaT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="dXc-eh-fYk">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -83,4 +123,7 @@
             <point key="canvasLocation" x="156" y="-543.77811094452773"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="picture.jpg" width="703" height="800"/>
+    </resources>
 </document>

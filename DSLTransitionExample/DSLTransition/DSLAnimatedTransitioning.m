@@ -54,6 +54,8 @@
             [bgView addGestureRecognizer:pan];
             
             toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
+            toView.layer.cornerRadius = 15;
+            toView.layer.masksToBounds = YES;
             [containerView addSubview:bgView];
             [containerView addSubview:toView];
             
@@ -84,19 +86,34 @@
         }
     } else if (_type == 1) {
         if (_isPresent) {
-            toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
+            toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 280);
+            toView.layer.cornerRadius = 10;
+            toView.layer.masksToBounds = YES;
             [containerView addSubview:toView];
+            
+            fromView.layer.masksToBounds = YES;
+            CABasicAnimation *cornerAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+            cornerAnimation.duration = [self transitionDuration:transitionContext];
+            cornerAnimation.fillMode = kCAFillModeForwards;
+            cornerAnimation.removedOnCompletion = NO;
+            cornerAnimation.fromValue = @(0);
+            cornerAnimation.toValue = @(10);
+            [fromView.layer addAnimation:cornerAnimation forKey:@"cornerRadius"];
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 fromView.transform = CGAffineTransformScale(fromView.transform, 0.85, 0.85);
-                toView.frame = CGRectMake(0, kScreenHeight - 280, kScreenWidth, kScreenHeight);
+                toView.frame = CGRectMake(0, kScreenHeight - 280, kScreenWidth, 280);
             } completion:^(BOOL finished) {
-                UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:NO];
+                [fromView.layer removeAnimationForKey:@"cornerRadius"];
+                UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:YES];
+                fromViewSnapshot.layer.cornerRadius = 10;
+                fromViewSnapshot.layer.masksToBounds = YES;
                 fromViewSnapshot.tag = 2000;
                 fromViewSnapshot.transform = CGAffineTransformScale(fromViewSnapshot.transform, 0.85, 0.85);
                 [containerView insertSubview:fromViewSnapshot belowSubview:toView];
                 UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureType1:)];
                 [fromViewSnapshot addGestureRecognizer:tap];
+                
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         } else {
@@ -106,11 +123,21 @@
                     toViewSnapshot = view;
                 }
             }
+            toViewSnapshot.layer.masksToBounds = YES;
+            CABasicAnimation *cornerAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+            cornerAnimation.duration = [self transitionDuration:transitionContext];
+            cornerAnimation.fillMode = kCAFillModeForwards;
+            cornerAnimation.removedOnCompletion = NO;
+            cornerAnimation.fromValue = @(10);
+            cornerAnimation.toValue = @(0);
+            [toViewSnapshot.layer addAnimation:cornerAnimation forKey:@"cornerRadius"];
+            
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 toViewSnapshot.transform = CGAffineTransformIdentity;
                 toView.transform = CGAffineTransformIdentity;
-                fromView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
+                fromView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 280);
             } completion:^(BOOL finished) {
+                toView.layer.cornerRadius = 0;
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         }
