@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZAd-a1-uNt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZAd-a1-uNt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxJ-9F-ef2">
@@ -30,7 +30,7 @@
                                     <action selector="type0:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jVF-eg-cKG"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9PQ-3s-Hz8">
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="9PQ-3s-Hz8">
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="4GW-cL-fHb"/>
@@ -96,22 +96,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="FXB-Ec-ZFT">
                     <connections>
-                        <action selector="tagImageView:" destination="BYZ-38-t0r" id="U22-Ok-NnB"/>
+                        <action selector="type2:" destination="BYZ-38-t0r" id="AAU-e6-Ynu"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="k6X-1b-VfH">
                     <connections>
-                        <action selector="tagImageView:" destination="BYZ-38-t0r" id="7L5-eC-7si"/>
+                        <action selector="type2:" destination="BYZ-38-t0r" id="gKK-kp-2xS"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="0Sa-sX-Fyz">
                     <connections>
-                        <action selector="tagImageView:" destination="BYZ-38-t0r" id="mJe-Am-3ed"/>
+                        <action selector="type2:" destination="BYZ-38-t0r" id="j1V-X4-s8y"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="WzG-Oz-c8k">
                     <connections>
-                        <action selector="tagImageView:" destination="BYZ-38-t0r" id="Qey-LG-Eor"/>
+                        <action selector="type2:" destination="BYZ-38-t0r" id="UZ6-DN-nDa"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -143,6 +143,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZAd-a1-uNt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="6ak-7R-hVL">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -156,7 +157,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1.jpg" width="703" height="800"/>
+        <image name="1.jpeg" width="658" height="872"/>
         <image name="2.jpg" width="800" height="1199"/>
         <image name="3.jpeg" width="700" height="977"/>
         <image name="4.jpeg" width="1500" height="1953"/>

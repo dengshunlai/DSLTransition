@@ -46,7 +46,7 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
-- (IBAction)tagImageView:(UITapGestureRecognizer *)sender {
+- (IBAction)type2:(UITapGestureRecognizer *)sender {
     UIImageView *iv = (UIImageView *)sender.view;
     self.dsl_transitionType = 2;
     PictureViewController *vc = [[PictureViewController alloc] initWithImage:iv.image];

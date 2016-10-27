@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D666F7D11DC098F000BD98C7 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D666F7D01DC098F000BD98C7 /* 1.jpg */; };
 		D6E9C5891DC208DA00F44AA2 /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6E9C5861DC208DA00F44AA2 /* 3.jpeg */; };
 		D6E9C58A1DC208DA00F44AA2 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6E9C5871DC208DA00F44AA2 /* 2.jpg */; };
 		D6E9C58B1DC208DA00F44AA2 /* 4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6E9C5881DC208DA00F44AA2 /* 4.jpeg */; };
 		DD3871F11DC0CF5E000055A0 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3871EF1DC0CF5E000055A0 /* PictureViewController.m */; };
 		DD3871F21DC0CF5E000055A0 /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD3871F01DC0CF5E000055A0 /* PictureViewController.xib */; };
+		DDA96F3D1DC2671C00651C5E /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = DDA96F3C1DC2671C00651C5E /* 1.jpeg */; };
 		DDD0D5711DBE666A00C06C5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5701DBE666A00C06C5B /* main.m */; };
 		DDD0D5741DBE666A00C06C5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5731DBE666A00C06C5B /* AppDelegate.m */; };
 		DDD0D5771DBE666A00C06C5B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5761DBE666A00C06C5B /* ViewController.m */; };
@@ -45,13 +45,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D666F7D01DC098F000BD98C7 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		D6E9C5861DC208DA00F44AA2 /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
 		D6E9C5871DC208DA00F44AA2 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		D6E9C5881DC208DA00F44AA2 /* 4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpeg; sourceTree = "<group>"; };
 		DD3871EE1DC0CF5E000055A0 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
 		DD3871EF1DC0CF5E000055A0 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
 		DD3871F01DC0CF5E000055A0 /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
+		DDA96F3C1DC2671C00651C5E /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		DDD0D56C1DBE666A00C06C5B /* DSLTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSLTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDD0D5701DBE666A00C06C5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DDD0D5721DBE666A00C06C5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 				DD3871EF1DC0CF5E000055A0 /* PictureViewController.m */,
 				DD3871F01DC0CF5E000055A0 /* PictureViewController.xib */,
 				DDD0D5781DBE666A00C06C5B /* Main.storyboard */,
-				D666F7D01DC098F000BD98C7 /* 1.jpg */,
+				DDA96F3C1DC2671C00651C5E /* 1.jpeg */,
 				D6E9C5861DC208DA00F44AA2 /* 3.jpeg */,
 				D6E9C5871DC208DA00F44AA2 /* 2.jpg */,
 				D6E9C5881DC208DA00F44AA2 /* 4.jpeg */,
@@ -253,7 +253,7 @@
 				TargetAttributes = {
 					DDD0D56B1DBE666A00C06C5B = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = UJ6ZZAPFYZ;
+						DevelopmentTeam = QTRV8G9WAU;
 						ProvisioningStyle = Automatic;
 					};
 					DDD0D5841DBE666A00C06C5B = {
@@ -296,10 +296,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDD0D57F1DBE666A00C06C5B /* LaunchScreen.storyboard in Resources */,
-				D666F7D11DC098F000BD98C7 /* 1.jpg in Resources */,
 				DDD0D5AD1DBE675A00C06C5B /* NextViewController.xib in Resources */,
 				DD3871F21DC0CF5E000055A0 /* PictureViewController.xib in Resources */,
 				DDD0D57C1DBE666A00C06C5B /* Assets.xcassets in Resources */,
+				DDA96F3D1DC2671C00651C5E /* 1.jpeg in Resources */,
 				D6E9C5891DC208DA00F44AA2 /* 3.jpeg in Resources */,
 				D6E9C58A1DC208DA00F44AA2 /* 2.jpg in Resources */,
 				D6E9C58B1DC208DA00F44AA2 /* 4.jpeg in Resources */,
@@ -483,7 +483,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UJ6ZZAPFYZ;
+				DEVELOPMENT_TEAM = QTRV8G9WAU;
 				INFOPLIST_FILE = DSLTransitionExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLTransition;
@@ -495,7 +495,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UJ6ZZAPFYZ;
+				DEVELOPMENT_TEAM = QTRV8G9WAU;
 				INFOPLIST_FILE = DSLTransitionExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLTransition;
