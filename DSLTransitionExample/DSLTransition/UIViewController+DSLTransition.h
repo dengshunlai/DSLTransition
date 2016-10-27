@@ -20,6 +20,23 @@
  */
 @property (assign, nonatomic) NSInteger dsl_transitionType;
 
-@property (assign, nonatomic) CGRect dsl_transitionBeginFrame;
+/**
+ type = 2 时有效
+ */
+@property (weak, nonatomic) UIView *dsl_transition_fromView;
+
+/**
+ type = 2 时有效
+ */
+@property (weak, nonatomic) UIView *dsl_transition_toView;
+
+/**
+ 设置dsl_transition_fromView、dsl_transition_toView
+ type = 2 时有效
+
+ @param fromView dsl_transition_fromView
+ @param toView   dsl_transition_toView
+ */
+- (void)dsl_setTransitionFromView:(UIView *)fromView toView:(UIView *)toView;
 
 @end

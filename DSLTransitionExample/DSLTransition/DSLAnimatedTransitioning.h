@@ -14,6 +14,10 @@
 
 @property (weak, nonatomic) UIViewController *presentViewController;
 
+@property (weak, nonatomic) UIView *fromView;
+
+@property (weak, nonatomic) UIView *toView;
+
 - (instancetype)initWithPresentViewController:(UIViewController *)presentViewController;
 
 @end

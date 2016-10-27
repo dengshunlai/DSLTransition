@@ -62,12 +62,42 @@
     objc_setAssociatedObject(self, @selector(dsl_animatedTransitioning), dsl_animatedTransitioning, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (UIView *)dsl_transition_fromView
+{
+    return objc_getAssociatedObject(self, @selector(dsl_transition_fromView));
+}
+
+- (void)setDsl_transition_fromView:(UIView *)dsl_transition_fromView
+{
+    objc_setAssociatedObject(self, @selector(dsl_transition_fromView), dsl_transition_fromView, OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (UIView *)dsl_transition_toView
+{
+    return objc_getAssociatedObject(self, @selector(dsl_transition_toView));
+}
+
+- (void)setDsl_transition_toView:(UIView *)dsl_transition_toView
+{
+    objc_setAssociatedObject(self, @selector(dsl_transition_toView), dsl_transition_toView, OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (void)dsl_setTransitionFromView:(UIView *)fromView toView:(UIView *)toView
+{
+    self.dsl_transition_fromView = fromView;
+    self.dsl_transition_toView = toView;
+}
+
 - (void)dsl_presentViewController:(UIViewController *)viewController animated:(BOOL)flag completion:(void (^)(void))completion
 {
     if (self.dsl_transitionEnabled) {
         viewController.transitioningDelegate = self.dsl_animatedTransitioning;
         self.dsl_animatedTransitioning.type = self.dsl_transitionType;
         self.dsl_animatedTransitioning.presentViewController = viewController;
+        if (self.dsl_transitionType == 2) {
+            self.dsl_animatedTransitioning.fromView = self.dsl_transition_fromView;
+            self.dsl_animatedTransitioning.toView = self.dsl_transition_toView;
+        }
     } else {
         viewController.transitioningDelegate = nil;
     }

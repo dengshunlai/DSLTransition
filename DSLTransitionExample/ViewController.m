@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "NextViewController.h"
+#import "PictureViewController.h"
 #import "UIViewController+DSLTransition.h"
 
 @interface ViewController ()
@@ -46,9 +47,11 @@
 }
 
 - (IBAction)tagImageView:(UITapGestureRecognizer *)sender {
-//    self.dsl_transitionType = 2;
-//    self.dsl_transitionBeginFrame = sender.view.
-    NSLog(@"%s",__func__);
+    UIImageView *iv = (UIImageView *)sender.view;
+    self.dsl_transitionType = 2;
+    PictureViewController *vc = [[PictureViewController alloc] initWithImage:iv.image];
+    [self dsl_setTransitionFromView:sender.view toView:vc.imageView];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

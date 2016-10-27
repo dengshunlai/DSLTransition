@@ -14,9 +14,23 @@
 
 @implementation PictureViewController
 
+- (instancetype)initWithImage:(UIImage *)image
+{
+    self = [super init];
+    if (self) {
+        _image = image;
+        _imageView = [[UIImageView alloc] initWithImage:image];
+        _imageView.frame = CGRectMake(25, 80, [UIScreen mainScreen].bounds.size.width - 50, ([UIScreen mainScreen].bounds.size.width - 50) * 125 / 100);
+        _imageView.contentMode = UIViewContentModeScaleToFill;
+        _imageView.layer.masksToBounds = YES;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [self.view addSubview:_imageView];
 }
 
 - (void)didReceiveMemoryWarning {

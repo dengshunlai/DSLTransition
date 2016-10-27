@@ -50,17 +50,19 @@
             bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
             bgView.alpha = 0;
             bgView.tag = 2000;
-            UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(gestureType0:)];
-            [bgView addGestureRecognizer:pan];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureType0:)];
+            [bgView addGestureRecognizer:tap];
             
             toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
             toView.layer.cornerRadius = 15;
             toView.layer.masksToBounds = YES;
+            toView.alpha = 0;
             [containerView addSubview:bgView];
             [containerView addSubview:toView];
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 bgView.alpha = 1;
+                toView.alpha = 1;
                 toView.frame = CGRectMake(0, kScreenHeight - 280, kScreenWidth, kScreenHeight);
             } completion:^(BOOL finished) {
                 UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:YES];
@@ -108,12 +110,11 @@
                 fromViewSnapshot.tag = 2000;
                 fromViewSnapshot.transform = CGAffineTransformScale(fromViewSnapshot.transform, 0.85, 0.85);
                 [containerView insertSubview:fromViewSnapshot belowSubview:toView];
-                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureType1:)];
-                [fromViewSnapshot addGestureRecognizer:tap];
-//                UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(gestureType0:)];
-//                [fromViewSnapshot addGestureRecognizer:pan];
-                [fromView.layer removeAnimationForKey:@"cornerRadius"];
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                
+                UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(gestureType1:)];
+                [fromViewSnapshot addGestureRecognizer:pan];
+                [fromView.layer removeAnimationForKey:@"cornerRadius"];
             }];
         } else {
             UIView *toViewSnapshot;
@@ -124,9 +125,9 @@
             }
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 toViewSnapshot.transform = CGAffineTransformIdentity;
-                toView.transform = CGAffineTransformIdentity;
                 fromView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 280);
             } completion:^(BOOL finished) {
+                toView.transform = CGAffineTransformIdentity;
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
                 
                 CABasicAnimation *cornerAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
@@ -136,8 +137,51 @@
                 [toView.layer addAnimation:cornerAnimation forKey:@"cornerRadius"];
             }];
         }
-    } else {
-        ;
+    } else if (_type == 2) {
+        if (_isPresent) {
+            toView.alpha = 0;
+            toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+            [containerView addSubview:toView];
+            
+            UIView *fromViewSnapshot = [_fromView snapshotViewAfterScreenUpdates:NO];
+            fromViewSnapshot.frame = [_fromView convertRect:_fromView.bounds toView:containerView];
+            [containerView addSubview:fromViewSnapshot];
+            _fromView.hidden = YES;
+            _toView.hidden = YES;
+            
+//            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:0.55 initialSpringVelocity:1 / 0.55 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//                fromViewSnapshot.frame = [_toView convertRect:_toView.bounds toView:containerView];
+//                toView.alpha = 1;
+//            } completion:^(BOOL finished) {
+//                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+//            }];
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                fromViewSnapshot.frame = [_toView convertRect:_toView.bounds toView:containerView];
+                toView.alpha = 1;
+            } completion:^(BOOL finished) {
+                _toView.hidden = NO;
+                fromViewSnapshot.hidden = YES;
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureType0:)];
+                [toView addGestureRecognizer:tap];
+            }];
+        } else {
+            [containerView insertSubview:toView belowSubview:fromView];
+            
+            UIView *fromViewSnapshot = containerView.subviews.lastObject;
+            fromViewSnapshot.hidden = NO;
+            _toView.hidden = YES;
+            
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                fromViewSnapshot.frame = [_fromView convertRect:_fromView.bounds toView:containerView];
+                fromView.alpha = 0;
+            } completion:^(BOOL finished) {
+                _fromView.hidden = NO;
+                fromViewSnapshot.hidden = YES;
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            }];
+        }
     }
 }
 
@@ -164,9 +208,10 @@
 {
     switch (_type) {
         case 0:
-            return _isInteractive ? self : nil;
+            return nil;
             break;
         case 1:
+            return _isInteractive ? self : nil;
             return nil;
             break;
         default:
@@ -177,7 +222,12 @@
 
 #pragma mark - Action
 
-- (void)gestureType0:(UIPanGestureRecognizer *)pan
+- (void)gestureType0:(UITapGestureRecognizer *)tap
+{
+    [_presentViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)gestureType1:(UIPanGestureRecognizer *)pan
 {
     switch (pan.state) {
         case UIGestureRecognizerStateBegan:
@@ -211,11 +261,6 @@
         default:
             break;
     }
-}
-
-- (void)gestureType1:(UITapGestureRecognizer *)tap
-{
-    [_presentViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
