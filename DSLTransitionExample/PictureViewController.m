@@ -31,11 +31,19 @@
     [super viewDidLoad];
     
     [self.view addSubview:_imageView];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss:)];
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dismiss:(UITapGestureRecognizer *)tap
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

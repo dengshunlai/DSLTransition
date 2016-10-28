@@ -54,4 +54,11 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (IBAction)type3:(UIButton *)sender {
+    self.dsl_transitionType = 3;
+    PictureViewController *vc = [[PictureViewController alloc] initWithImage:[UIImage imageNamed:@"2.jpg"]];
+    self.dsl_transition_fromRect = sender.frame;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 @end

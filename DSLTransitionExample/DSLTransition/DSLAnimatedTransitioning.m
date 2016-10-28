@@ -33,7 +33,14 @@
 
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.35;
+    switch (_type) {
+        case 3:
+            return 0.55;
+            break;
+        default:
+            return 0.35;
+            break;
+    }
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext
@@ -56,13 +63,11 @@
             toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
             toView.layer.cornerRadius = 15;
             toView.layer.masksToBounds = YES;
-            toView.alpha = 0;
             [containerView addSubview:bgView];
             [containerView addSubview:toView];
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 bgView.alpha = 1;
-                toView.alpha = 1;
                 toView.frame = CGRectMake(0, kScreenHeight - 280, kScreenWidth, kScreenHeight);
             } completion:^(BOOL finished) {
                 UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:YES];
@@ -149,12 +154,6 @@
             _fromView.hidden = YES;
             _toView.hidden = YES;
             
-//            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:0.55 initialSpringVelocity:1 / 0.55 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//                fromViewSnapshot.frame = [_toView convertRect:_toView.bounds toView:containerView];
-//                toView.alpha = 1;
-//            } completion:^(BOOL finished) {
-//                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-//            }];
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 fromViewSnapshot.frame = [_toView convertRect:_toView.bounds toView:containerView];
                 toView.alpha = 1;
@@ -162,9 +161,6 @@
                 _toView.hidden = NO;
                 fromViewSnapshot.hidden = YES;
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-                
-                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureType0:)];
-                [toView addGestureRecognizer:tap];
             }];
         } else {
             [containerView insertSubview:toView belowSubview:fromView];
@@ -181,6 +177,56 @@
                 fromViewSnapshot.hidden = YES;
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
+        }
+    } else if (_type == 3) {
+        if (_isPresent) {
+            toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+            [containerView addSubview:toView];
+            if (CGRectIsEmpty(_fromRect)) {
+                _fromRect = CGRectMake(CGRectGetWidth(_presentSenderViewController.view.bounds) / 2 - 10, CGRectGetHeight(_presentSenderViewController.view.bounds) / 2 - 10, 20, 20);
+            }
+            CGFloat radius = MIN(_fromRect.size.width, _fromRect.size.height);
+            CGRect rect = [_presentSenderViewController.view convertRect:_fromRect toView:containerView];
+            CGPoint center = CGPointMake(rect.origin.x + rect.size.width / 2, rect.origin.y + rect.size.height / 2);
+            UIBezierPath *startPath = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0 endAngle:2 * M_PI clockwise:YES];
+            radius = sqrt(pow(containerView.bounds.size.width / 2, 2) + pow(containerView.bounds.size.height / 2, 2));
+            UIBezierPath *endPath = [UIBezierPath bezierPathWithArcCenter:containerView.center radius:radius startAngle:0 endAngle:2 * M_PI clockwise:YES];
+            
+            CAShapeLayer *maskLayer = [CAShapeLayer layer];
+            maskLayer.path = startPath.CGPath;
+            toView.layer.mask = maskLayer;
+            
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"path"];
+            animation.removedOnCompletion = NO;
+            animation.fillMode = kCAFillModeForwards;
+            animation.fromValue = (__bridge id)startPath.CGPath;
+            animation.toValue = (__bridge id)endPath.CGPath;
+            animation.duration = [self transitionDuration:transitionContext];
+            animation.delegate = self;
+            [animation setValue:transitionContext forKey:@"transitionContext"];
+            [maskLayer addAnimation:animation forKey:@"path"];
+        } else {
+            [containerView insertSubview:toView belowSubview:fromView];
+            CGFloat radius = sqrt(pow(containerView.bounds.size.width / 2, 2) + pow(containerView.bounds.size.height / 2, 2));
+            UIBezierPath *startPath = [UIBezierPath bezierPathWithArcCenter:containerView.center radius:radius startAngle:0 endAngle:2 * M_PI clockwise:YES];
+            radius = MIN(_fromRect.size.width, _fromRect.size.height);
+            CGRect rect = [_presentSenderViewController.view convertRect:_fromRect toView:containerView];
+            CGPoint center = CGPointMake(rect.origin.x + rect.size.width / 2, rect.origin.y + rect.size.height / 2);
+            UIBezierPath *endPath = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0 endAngle:2 * M_PI clockwise:YES];
+            
+            CAShapeLayer *maskLayer = [CAShapeLayer layer];
+            maskLayer.path = startPath.CGPath;
+            fromView.layer.mask = maskLayer;
+            
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"path"];
+            animation.removedOnCompletion = NO;
+            animation.fillMode = kCAFillModeForwards;
+            animation.fromValue = (__bridge id)startPath.CGPath;
+            animation.toValue = (__bridge id)endPath.CGPath;
+            animation.duration = [self transitionDuration:transitionContext];
+            animation.delegate = self;
+            [animation setValue:transitionContext forKey:@"transitionContext"];
+            [maskLayer addAnimation:animation forKey:@"path"];
         }
     }
 }
@@ -260,6 +306,24 @@
             break;
         default:
             break;
+    }
+}
+
+#pragma mark - CAAnimationDelegate
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    id <UIViewControllerContextTransitioning> transitionContext = [anim valueForKey:@"transitionContext"];
+    UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+    UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+    if (_isPresent) {
+        [toView.layer.mask removeAllAnimations];
+        toView.layer.mask = nil;
+        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+    } else {
+        [fromView.layer.mask removeAllAnimations];
+        fromView.layer.mask = nil;
+        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
     }
 }
 
