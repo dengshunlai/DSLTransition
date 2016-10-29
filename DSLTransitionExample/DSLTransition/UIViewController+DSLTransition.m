@@ -92,6 +92,16 @@
     self.dsl_animatedTransitioning.fromRect = dsl_transition_fromRect;
 }
 
+- (CGSize)dsl_transition_size
+{
+    return self.dsl_animatedTransitioning.size;
+}
+
+- (void)setDsl_transition_size:(CGSize)dsl_transition_size
+{
+    self.dsl_animatedTransitioning.size = dsl_transition_size;
+}
+
 - (void)dsl_setTransitionFromView:(UIView *)fromView toView:(UIView *)toView
 {
     self.dsl_transition_fromView = fromView;

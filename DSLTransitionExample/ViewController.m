@@ -61,4 +61,13 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (IBAction)type4:(UIButton *)sender {
+    self.dsl_transitionType = 4;
+    NextViewController *vc = [[NextViewController alloc] init];
+    vc.view.layer.cornerRadius = 10;
+    vc.view.layer.masksToBounds = YES;
+    self.dsl_transition_size = CGSizeMake(250, 250);
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 @end

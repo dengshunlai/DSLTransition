@@ -228,6 +228,44 @@
             [animation setValue:transitionContext forKey:@"transitionContext"];
             [maskLayer addAnimation:animation forKey:@"path"];
         }
+    } else if (_type == 4) {
+        if (_isPresent) {
+            UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+            bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+            bgView.alpha = 0;
+            bgView.tag = 2004;
+            [containerView addSubview:bgView];
+            
+            toView.frame = CGRectMake(0, 0, _size.width, _size.height);
+            toView.center = containerView.center;
+            toView.alpha = 0;
+            [containerView addSubview:toView];
+            
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+                toView.alpha = 1;
+                bgView.alpha = 1;
+            } completion:^(BOOL finished) {
+                UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:NO];
+                [containerView insertSubview:fromViewSnapshot belowSubview:bgView];
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureType0:)];
+                [bgView addGestureRecognizer:tap];
+            }];
+        } else {
+            UIView *bgView;
+            for (UIView *view in containerView.subviews) {
+                if (view.tag == 2004) {
+                    bgView = view;
+                }
+            }
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+                bgView.alpha = 0;
+                fromView.alpha = 0;
+            } completion:^(BOOL finished) {
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            }];
+        }
     }
 }
 

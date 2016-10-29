@@ -31,6 +31,8 @@
 
 @property (assign, nonatomic) CGRect fromRect;
 
+@property (assign, nonatomic) CGSize size;
+
 - (instancetype)initWithPresentViewController:(UIViewController *)presentViewController;
 
 @end

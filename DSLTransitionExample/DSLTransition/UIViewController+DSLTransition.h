@@ -31,9 +31,14 @@
 @property (weak, nonatomic) UIView *dsl_transition_toView;
 
 /**
- type = 3 时有效，转场开始时，圆圈的位置、大小
+ type = 3时有效，转场开始时，圆圈的位置、大小
  */
 @property (assign, nonatomic) CGRect dsl_transition_fromRect;
+
+/**
+ type = 4时有效，视窗大小
+ */
+@property (assign, nonatomic) CGSize dsl_transition_size;
 
 /**
  设置dsl_transition_fromView、dsl_transition_toView
