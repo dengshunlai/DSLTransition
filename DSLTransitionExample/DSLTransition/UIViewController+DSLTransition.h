@@ -16,7 +16,7 @@
 @property (assign, nonatomic) BOOL dsl_transitionEnabled;
 
 /**
- 转场类型 1-5
+ 转场类型 0-5
  */
 @property (assign, nonatomic) NSInteger dsl_transitionType;
 
