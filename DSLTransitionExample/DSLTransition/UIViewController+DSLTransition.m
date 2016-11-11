@@ -38,16 +38,6 @@
     objc_setAssociatedObject(self, @selector(dsl_transitionEnabled), [NSNumber numberWithBool:dsl_transitionEnabled], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (NSInteger)dsl_transitionType
-{
-    return [objc_getAssociatedObject(self, @selector(dsl_transitionType)) integerValue];
-}
-
-- (void)setDsl_transitionType:(NSInteger)dsl_transitionType
-{
-    objc_setAssociatedObject(self, @selector(dsl_transitionType), [NSNumber numberWithInteger:dsl_transitionType], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
 - (DSLAnimatedTransitioning *)dsl_animatedTransitioning
 {
     DSLAnimatedTransitioning *animator = objc_getAssociatedObject(self, @selector(dsl_animatedTransitioning));
@@ -60,6 +50,16 @@
 - (void)setDsl_animatedTransitioning:(DSLAnimatedTransitioning *)dsl_animatedTransitioning
 {
     objc_setAssociatedObject(self, @selector(dsl_animatedTransitioning), dsl_animatedTransitioning, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (NSInteger)dsl_transitionType
+{
+    return self.dsl_animatedTransitioning.type;
+}
+
+- (void)setDsl_transitionType:(NSInteger)dsl_transitionType
+{
+    self.dsl_animatedTransitioning.type = dsl_transitionType;
 }
 
 - (UIView *)dsl_transition_fromView
@@ -102,6 +102,26 @@
     self.dsl_animatedTransitioning.size = dsl_transition_size;
 }
 
+- (CGFloat)dsl_transition_width
+{
+    return self.dsl_animatedTransitioning.width;
+}
+
+- (void)setDsl_transition_width:(CGFloat)dsl_transition_width
+{
+    self.dsl_animatedTransitioning.width = dsl_transition_width;
+}
+
+- (CGFloat)dsl_transition_height
+{
+    return self.dsl_animatedTransitioning.height;
+}
+
+- (void)setDsl_transition_height:(CGFloat)dsl_transition_height
+{
+    self.dsl_animatedTransitioning.height = dsl_transition_height;
+}
+
 - (void)dsl_setTransitionFromView:(UIView *)fromView toView:(UIView *)toView
 {
     self.dsl_transition_fromView = fromView;
@@ -112,7 +132,6 @@
 {
     if (self.dsl_transitionEnabled) {
         viewController.transitioningDelegate = self.dsl_animatedTransitioning;
-        self.dsl_animatedTransitioning.type = self.dsl_transitionType;
         self.dsl_animatedTransitioning.presentViewController = viewController;
         self.dsl_animatedTransitioning.presentSenderViewController = self;
     } else {

@@ -25,13 +25,35 @@
  */
 @property (weak, nonatomic) UIViewController *presentSenderViewController;
 
+/**
+ type = 2 时有效
+ */
 @property (weak, nonatomic) UIView *fromView;
 
+/**
+ type = 2 时有效
+ */
 @property (weak, nonatomic) UIView *toView;
 
+/**
+ type = 3时有效，转场开始时，圆圈的位置、大小
+ */
 @property (assign, nonatomic) CGRect fromRect;
 
+/**
+ type = 4时有效，视窗大小
+ */
 @property (assign, nonatomic) CGSize size;
+
+/**
+ type = 5时有效，抽屉伸出的宽度，默认 屏幕宽度-70
+ */
+@property (assign, nonatomic) CGFloat width;
+
+/**
+ type = 0、1时有效，抽屉伸出的高度，默认 280
+ */
+@property (assign, nonatomic) CGFloat height;
 
 - (instancetype)initWithPresentViewController:(UIViewController *)presentViewController;
 

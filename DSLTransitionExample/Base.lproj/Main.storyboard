@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZAd-a1-uNt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZAd-a1-uNt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxJ-9F-ef2">
@@ -82,6 +82,12 @@
                                     <action selector="type4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sIh-K5-ehp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82G-Qk-c8e">
+                                <state key="normal" title="type=5"/>
+                                <connections>
+                                    <action selector="type5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NZf-l0-73D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -97,9 +103,11 @@
                             <constraint firstItem="f7I-pP-cyB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QSL-w2-2g1"/>
                             <constraint firstItem="fxJ-9F-ef2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Udh-RA-Kr6"/>
                             <constraint firstItem="f7I-pP-cyB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="avw-R4-cbL"/>
+                            <constraint firstItem="82G-Qk-c8e" firstAttribute="top" secondItem="N7N-TB-UGX" secondAttribute="bottom" constant="30" id="mNH-F2-eLI"/>
                             <constraint firstItem="9PQ-3s-Hz8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="puv-Jv-9wM"/>
                             <constraint firstItem="KuN-Ah-QuY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="rKa-cN-tgA"/>
                             <constraint firstItem="fxJ-9F-ef2" firstAttribute="top" secondItem="f7I-pP-cyB" secondAttribute="bottom" constant="30" id="s8l-5p-HIM"/>
+                            <constraint firstItem="82G-Qk-c8e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wfU-rT-HLl"/>
                             <constraint firstItem="N7N-TB-UGX" firstAttribute="top" secondItem="a5k-Eh-qiR" secondAttribute="bottom" constant="30" id="ySz-9q-kf0"/>
                         </constraints>
                     </view>

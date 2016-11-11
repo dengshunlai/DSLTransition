@@ -36,6 +36,7 @@
 - (IBAction)type0:(UIButton *)sender {
     //转场类型
     self.dsl_transitionType = 0;
+    //self.dsl_transition_height = 350;
     NextViewController *vc = [[NextViewController alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
 }
@@ -67,6 +68,13 @@
     vc.view.layer.cornerRadius = 10;
     vc.view.layer.masksToBounds = YES;
     self.dsl_transition_size = CGSizeMake(250, 250);
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)type5:(UIButton *)sender {
+    self.dsl_transitionType = 5;
+    //self.dsl_transition_width = 200;
+    NextViewController *vc = [[NextViewController alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
