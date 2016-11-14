@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DSLAnimatedTransitioning.h"
 
 @interface UIViewController (DSLTransition)
 
@@ -19,6 +20,11 @@
  转场类型 0-5
  */
 @property (assign, nonatomic) NSInteger dsl_transitionType;
+
+/**
+ 转场动画控制器
+ */
+@property (strong, nonatomic, readonly) DSLAnimatedTransitioning *dsl_animatedTransitioning;
 
 /**
  type = 2 时有效
@@ -57,6 +63,6 @@
  @param fromView dsl_transition_fromView
  @param toView   dsl_transition_toView
  */
-- (void)dsl_setTransitionFromView:(UIView *)fromView toView:(UIView *)toView;
+- (void)dsl_transition_setFromView:(UIView *)fromView toView:(UIView *)toView;
 
 @end

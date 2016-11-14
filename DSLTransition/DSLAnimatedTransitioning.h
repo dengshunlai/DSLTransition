@@ -26,6 +26,11 @@
 @property (weak, nonatomic) UIViewController *presentSenderViewController;
 
 /**
+ 是否进行交互式转场，暴露这个属性出来用于手动实现交互式present
+ */
+@property (assign, nonatomic) BOOL isInteractive;
+
+/**
  type = 2 时有效
  */
 @property (weak, nonatomic) UIView *fromView;

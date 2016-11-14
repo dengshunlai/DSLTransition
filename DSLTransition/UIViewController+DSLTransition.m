@@ -7,12 +7,9 @@
 //
 
 #import "UIViewController+DSLTransition.h"
-#import "DSLAnimatedTransitioning.h"
 #import <objc/runtime.h>
 
 @interface UIViewController ()
-
-@property (strong, nonatomic) DSLAnimatedTransitioning *dsl_animatedTransitioning;
 
 @end
 
@@ -43,6 +40,7 @@
     DSLAnimatedTransitioning *animator = objc_getAssociatedObject(self, @selector(dsl_animatedTransitioning));
     if (!animator) {
         self.dsl_animatedTransitioning = animator = [[DSLAnimatedTransitioning alloc] init];
+        animator.presentSenderViewController = self;
     }
     return animator;
 }
@@ -122,7 +120,7 @@
     self.dsl_animatedTransitioning.height = dsl_transition_height;
 }
 
-- (void)dsl_setTransitionFromView:(UIView *)fromView toView:(UIView *)toView
+- (void)dsl_transition_setFromView:(UIView *)fromView toView:(UIView *)toView
 {
     self.dsl_transition_fromView = fromView;
     self.dsl_transition_toView = toView;
@@ -133,7 +131,6 @@
     if (self.dsl_transitionEnabled) {
         viewController.transitioningDelegate = self.dsl_animatedTransitioning;
         self.dsl_animatedTransitioning.presentViewController = viewController;
-        self.dsl_animatedTransitioning.presentSenderViewController = self;
     } else {
         viewController.transitioningDelegate = nil;
     }

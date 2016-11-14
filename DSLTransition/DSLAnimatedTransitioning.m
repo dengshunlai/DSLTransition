@@ -14,7 +14,6 @@
 @interface DSLAnimatedTransitioning ()
 
 @property (assign, nonatomic) BOOL isPresent;
-@property (assign, nonatomic) BOOL isInteractive;
 
 @end
 
@@ -70,7 +69,7 @@
             bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
             bgView.alpha = 0;
             bgView.tag = 2000;
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureTap:)];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureDismissTap:)];
             [bgView addGestureRecognizer:tap];
             
             toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, _height);
@@ -134,7 +133,7 @@
                 [containerView insertSubview:fromViewSnapshot belowSubview:toView];
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
                 
-                UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(gesturePan:)];
+                UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(gestureDismissPanY:)];
                 [fromViewSnapshot addGestureRecognizer:pan];
                 [fromView.layer removeAnimationForKey:@"cornerRadius"];
             }];
@@ -266,7 +265,7 @@
                 [containerView insertSubview:fromViewSnapshot belowSubview:bgView];
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
                 
-                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureTap:)];
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureDismissTap:)];
                 [bgView addGestureRecognizer:tap];
             }];
         } else {
@@ -291,7 +290,7 @@
             bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
             bgView.alpha = 0;
             bgView.tag = 2005;
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureTap:)];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureDismissTap:)];
             [bgView addGestureRecognizer:tap];
             
             [containerView addSubview:bgView];
@@ -343,7 +342,7 @@
 
 - (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator
 {
-    return nil;
+    return _isInteractive ? self : nil;
 }
 
 - (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator
@@ -362,14 +361,14 @@
     }
 }
 
-#pragma mark - Action
+#pragma mark - GestureRecognizer
 
-- (void)gestureTap:(UITapGestureRecognizer *)tap
+- (void)gestureDismissTap:(UITapGestureRecognizer *)tap
 {
     [_presentViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)gesturePan:(UIPanGestureRecognizer *)pan
+- (void)gestureDismissPanY:(UIPanGestureRecognizer *)pan
 {
     switch (pan.state) {
         case UIGestureRecognizerStateBegan:

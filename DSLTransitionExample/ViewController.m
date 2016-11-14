@@ -26,6 +26,11 @@
     self.dsl_transitionEnabled = YES;
     //关闭
     //self.dsl_transitionEnabled = NO;
+    
+    
+    //添加一个手势，展示如何实现交互式present，动画采用type5
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(presentUseType5:)];
+    [self.view addGestureRecognizer:pan];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,6 +38,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Action
+//0-5种转场效果
 - (IBAction)type0:(UIButton *)sender {
     //转场类型
     self.dsl_transitionType = 0;
@@ -51,7 +58,7 @@
     UIImageView *iv = (UIImageView *)sender.view;
     self.dsl_transitionType = 2;
     PictureViewController *vc = [[PictureViewController alloc] initWithImage:iv.image];
-    [self dsl_setTransitionFromView:sender.view toView:vc.imageView];
+    [self dsl_transition_setFromView:sender.view toView:vc.imageView];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -76,6 +83,48 @@
     //self.dsl_transition_width = 200;
     NextViewController *vc = [[NextViewController alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+#pragma mark - Gesture
+//右划出现抽屉的效果
+- (void)presentUseType5:(UIPanGestureRecognizer *)pan
+{
+    switch (pan.state) {
+        case UIGestureRecognizerStateBegan:
+        {
+            self.dsl_transitionType = 5;
+            NextViewController *vc = [[NextViewController alloc] init];
+            self.dsl_animatedTransitioning.isInteractive = YES;
+            [self presentViewController:vc animated:YES completion:nil];
+        }
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            CGPoint translation = [pan translationInView:pan.view];
+            CGFloat percent = translation.x / 250.0;
+            if (percent >= 1) {
+                [self.dsl_animatedTransitioning finishInteractiveTransition];
+            } else {
+                [self.dsl_animatedTransitioning updateInteractiveTransition:percent];
+            }
+        }
+            break;
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+        {
+            CGPoint translation = [pan translationInView:pan.view];
+            CGFloat percent = translation.x / 250.0;
+            if (percent > 0.50) {
+                [self.dsl_animatedTransitioning finishInteractiveTransition];
+            } else {
+                [self.dsl_animatedTransitioning cancelInteractiveTransition];
+            }
+            self.dsl_animatedTransitioning.isInteractive = NO;
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 @end

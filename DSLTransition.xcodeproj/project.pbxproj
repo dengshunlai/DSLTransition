@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D665AFBA1DD9A5C0009164E7 /* DSLAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D665AFB71DD9A5C0009164E7 /* DSLAnimatedTransitioning.m */; };
+		D665AFBB1DD9A5C0009164E7 /* UIViewController+DSLTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D665AFB91DD9A5C0009164E7 /* UIViewController+DSLTransition.m */; };
 		D6E9C5891DC208DA00F44AA2 /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6E9C5861DC208DA00F44AA2 /* 3.jpeg */; };
 		D6E9C58A1DC208DA00F44AA2 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6E9C5871DC208DA00F44AA2 /* 2.jpg */; };
 		D6E9C58B1DC208DA00F44AA2 /* 4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6E9C5881DC208DA00F44AA2 /* 4.jpeg */; };
@@ -21,10 +23,8 @@
 		DDD0D57F1DBE666A00C06C5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD0D57D1DBE666A00C06C5B /* LaunchScreen.storyboard */; };
 		DDD0D58A1DBE666A00C06C5B /* DSLTransitionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5891DBE666A00C06C5B /* DSLTransitionTests.m */; };
 		DDD0D5951DBE666A00C06C5B /* DSLTransitionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5941DBE666A00C06C5B /* DSLTransitionUITests.m */; };
-		DDD0D5A51DBE671F00C06C5B /* UIViewController+DSLTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5A41DBE671F00C06C5B /* UIViewController+DSLTransition.m */; };
 		DDD0D5AC1DBE675A00C06C5B /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5AA1DBE675A00C06C5B /* NextViewController.m */; };
 		DDD0D5AD1DBE675A00C06C5B /* NextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD0D5AB1DBE675A00C06C5B /* NextViewController.xib */; };
-		DDDE0E281DBFA89F004DADCC /* DSLAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDE0E271DBFA89F004DADCC /* DSLAnimatedTransitioning.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D665AFB61DD9A5C0009164E7 /* DSLAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLAnimatedTransitioning.h; sourceTree = "<group>"; };
+		D665AFB71DD9A5C0009164E7 /* DSLAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLAnimatedTransitioning.m; sourceTree = "<group>"; };
+		D665AFB81DD9A5C0009164E7 /* UIViewController+DSLTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DSLTransition.h"; sourceTree = "<group>"; };
+		D665AFB91DD9A5C0009164E7 /* UIViewController+DSLTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DSLTransition.m"; sourceTree = "<group>"; };
 		D6E9C5861DC208DA00F44AA2 /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
 		D6E9C5871DC208DA00F44AA2 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		D6E9C5881DC208DA00F44AA2 /* 4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpeg; sourceTree = "<group>"; };
@@ -68,13 +72,9 @@
 		DDD0D5901DBE666A00C06C5B /* DSLTransitionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSLTransitionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDD0D5941DBE666A00C06C5B /* DSLTransitionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSLTransitionUITests.m; sourceTree = "<group>"; };
 		DDD0D5961DBE666A00C06C5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DDD0D5A31DBE671F00C06C5B /* UIViewController+DSLTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DSLTransition.h"; sourceTree = "<group>"; };
-		DDD0D5A41DBE671F00C06C5B /* UIViewController+DSLTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DSLTransition.m"; sourceTree = "<group>"; };
 		DDD0D5A91DBE675A00C06C5B /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextViewController.h; sourceTree = "<group>"; };
 		DDD0D5AA1DBE675A00C06C5B /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextViewController.m; sourceTree = "<group>"; };
 		DDD0D5AB1DBE675A00C06C5B /* NextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NextViewController.xib; sourceTree = "<group>"; };
-		DDDE0E261DBFA89F004DADCC /* DSLAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLAnimatedTransitioning.h; sourceTree = "<group>"; };
-		DDDE0E271DBFA89F004DADCC /* DSLAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLAnimatedTransitioning.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +102,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D665AFB51DD9A5C0009164E7 /* DSLTransition */ = {
+			isa = PBXGroup;
+			children = (
+				D665AFB61DD9A5C0009164E7 /* DSLAnimatedTransitioning.h */,
+				D665AFB71DD9A5C0009164E7 /* DSLAnimatedTransitioning.m */,
+				D665AFB81DD9A5C0009164E7 /* UIViewController+DSLTransition.h */,
+				D665AFB91DD9A5C0009164E7 /* UIViewController+DSLTransition.m */,
+			);
+			path = DSLTransition;
+			sourceTree = SOURCE_ROOT;
+		};
 		DDD0D5631DBE666A00C06C5B = {
 			isa = PBXGroup;
 			children = (
@@ -125,7 +136,7 @@
 		DDD0D56E1DBE666A00C06C5B /* DSLTransitionExample */ = {
 			isa = PBXGroup;
 			children = (
-				DDD0D5A21DBE669200C06C5B /* DSLTransition */,
+				D665AFB51DD9A5C0009164E7 /* DSLTransition */,
 				DDD0D5721DBE666A00C06C5B /* AppDelegate.h */,
 				DDD0D5731DBE666A00C06C5B /* AppDelegate.m */,
 				DDD0D5751DBE666A00C06C5B /* ViewController.h */,
@@ -173,17 +184,6 @@
 				DDD0D5961DBE666A00C06C5B /* Info.plist */,
 			);
 			path = DSLTransitionUITests;
-			sourceTree = "<group>";
-		};
-		DDD0D5A21DBE669200C06C5B /* DSLTransition */ = {
-			isa = PBXGroup;
-			children = (
-				DDD0D5A31DBE671F00C06C5B /* UIViewController+DSLTransition.h */,
-				DDD0D5A41DBE671F00C06C5B /* UIViewController+DSLTransition.m */,
-				DDDE0E261DBFA89F004DADCC /* DSLAnimatedTransitioning.h */,
-				DDDE0E271DBFA89F004DADCC /* DSLAnimatedTransitioning.m */,
-			);
-			path = DSLTransition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,11 +330,11 @@
 			files = (
 				DDD0D5AC1DBE675A00C06C5B /* NextViewController.m in Sources */,
 				DDD0D5771DBE666A00C06C5B /* ViewController.m in Sources */,
-				DDDE0E281DBFA89F004DADCC /* DSLAnimatedTransitioning.m in Sources */,
+				D665AFBA1DD9A5C0009164E7 /* DSLAnimatedTransitioning.m in Sources */,
 				DD3871F11DC0CF5E000055A0 /* PictureViewController.m in Sources */,
 				DDD0D5741DBE666A00C06C5B /* AppDelegate.m in Sources */,
-				DDD0D5A51DBE671F00C06C5B /* UIViewController+DSLTransition.m in Sources */,
 				DDD0D5711DBE666A00C06C5B /* main.m in Sources */,
+				D665AFBB1DD9A5C0009164E7 /* UIViewController+DSLTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
