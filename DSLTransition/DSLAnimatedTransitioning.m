@@ -284,7 +284,7 @@
         }
     } else if (_type == 5) {
         if (_isPresent) {
-            toView.frame = CGRectMake(-kScreenWidth, 0, kScreenWidth, kScreenHeight);
+            toView.frame = CGRectMake(-_width, 0, _width, kScreenHeight);
             
             UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];;
             bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
@@ -298,7 +298,7 @@
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 bgView.alpha = 1;
-                toView.frame = CGRectMake(_width - kScreenWidth, 0, kScreenWidth, kScreenHeight);
+                toView.frame = CGRectMake(0, 0, _width, kScreenHeight);
                 fromView.frame = CGRectMake(100, 0, kScreenWidth, kScreenHeight);
             } completion:^(BOOL finished) {
                 UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:NO];
@@ -318,7 +318,7 @@
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 bgView.alpha = 0;
                 toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-                fromView.frame = CGRectMake(-kScreenWidth, 0, kScreenWidth, kScreenHeight);
+                fromView.frame = CGRectMake(-_width, 0, _width, kScreenHeight);
             } completion:^(BOOL finished) {
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
