@@ -52,9 +52,14 @@
 @property (assign, nonatomic) CGFloat dsl_transition_width;
 
 /**
- type = 0、1时有效，抽屉伸出的高度，默认 280
+ type = 0、1、6时有效，抽屉伸出的高度，默认 280
  */
 @property (assign, nonatomic) CGFloat dsl_transition_height;
+
+/**
+ type = 1、6时有效，默认0.85
+ */
+@property (assign, nonatomic) CGFloat dsl_transition_scale;
 
 /**
  设置dsl_transition_fromView、dsl_transition_toView

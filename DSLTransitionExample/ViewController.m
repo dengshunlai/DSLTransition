@@ -39,17 +39,19 @@
 }
 
 #pragma mark - Action
-//0-5种转场效果
+//0-6种转场效果
 - (IBAction)type0:(UIButton *)sender {
     //转场类型
     self.dsl_transitionType = 0;
-    //self.dsl_transition_height = 350;
+    self.dsl_transition_height = 350;
     NextViewController *vc = [[NextViewController alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)type1:(UIButton *)sender {
     self.dsl_transitionType = 1;
+    self.dsl_transition_height = 450;
+    //self.dsl_transition_scale = 0.9;
     NextViewController *vc = [[NextViewController alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
 }
@@ -81,6 +83,13 @@
 - (IBAction)type5:(UIButton *)sender {
     self.dsl_transitionType = 5;
     //self.dsl_transition_width = 200;
+    NextViewController *vc = [[NextViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)type6:(UIButton *)sender {
+    self.dsl_transitionType = 6;
+    self.dsl_transition_height = [UIScreen mainScreen].bounds.size.height - 64 - 50;
     NextViewController *vc = [[NextViewController alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
 }

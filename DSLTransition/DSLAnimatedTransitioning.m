@@ -34,6 +34,7 @@
     if (self) {
         _width = kScreenWidth - 70;
         _height = 280;
+        _scale = 0.85;
     }
     return self;
 }
@@ -73,12 +74,6 @@
             [bgView addGestureRecognizer:tap];
             
             toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, _height);
-            CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-            UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, kScreenWidth, _height)
-                                                       byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight
-                                                             cornerRadii:CGSizeMake(10, 10)];
-            maskLayer.path = path.CGPath;
-            toView.layer.mask = maskLayer;
             [containerView addSubview:bgView];
             [containerView addSubview:toView];
             
@@ -124,12 +119,12 @@
             [fromView.layer addAnimation:cornerAnimation forKey:@"cornerRadius"];
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                fromView.transform = CGAffineTransformScale(fromView.transform, 0.85, 0.85);
+                fromView.transform = CGAffineTransformScale(fromView.transform, _scale, _scale);
                 toView.frame = CGRectMake(0, kScreenHeight - _height, kScreenWidth, _height);
             } completion:^(BOOL finished) {
                 UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:NO];
                 fromViewSnapshot.tag = 2001;
-                fromViewSnapshot.transform = CGAffineTransformScale(fromViewSnapshot.transform, 0.85, 0.85);
+                fromViewSnapshot.transform = CGAffineTransformScale(fromViewSnapshot.transform, _scale, _scale);
                 [containerView insertSubview:fromViewSnapshot belowSubview:toView];
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
                 
@@ -320,6 +315,54 @@
                 toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
                 fromView.frame = CGRectMake(-_width, 0, _width, kScreenHeight);
             } completion:^(BOOL finished) {
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            }];
+        }
+    } else if (_type == 6) {
+        if (_isPresent) {
+            toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, _height);
+            [containerView addSubview:toView];
+            
+            UIView *bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+            bg.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+            [containerView insertSubview:bg belowSubview:toView];
+            bg.tag = 20062;
+            bg.alpha = 0;
+            
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                fromView.transform = CGAffineTransformScale(fromView.transform, _scale, _scale);
+                toView.frame = CGRectMake(0, kScreenHeight - _height, kScreenWidth, _height);
+                bg.alpha = 1;
+            } completion:^(BOOL finished) {
+                UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:NO];
+                fromViewSnapshot.tag = 2006;
+                fromViewSnapshot.transform = CGAffineTransformScale(fromViewSnapshot.transform, _scale, _scale);
+                [containerView insertSubview:fromViewSnapshot belowSubview:bg];
+                
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureDismissTap:)];
+                [bg addGestureRecognizer:tap];
+            }];
+        } else {
+            UIView *toViewSnapshot;
+            for (UIView *view in containerView.subviews) {
+                if (view.tag == 2006) {
+                    toViewSnapshot = view;
+                }
+            }
+            UIView *bg;
+            for (UIView *view in containerView.subviews) {
+                if (view.tag == 20062) {
+                    bg = view;
+                }
+            }
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                toViewSnapshot.transform = CGAffineTransformIdentity;
+                fromView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, _height);
+                bg.alpha = 0;
+            } completion:^(BOOL finished) {
+                toView.transform = CGAffineTransformIdentity;
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         }

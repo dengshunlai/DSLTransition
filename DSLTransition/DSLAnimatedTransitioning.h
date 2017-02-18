@@ -56,9 +56,14 @@
 @property (assign, nonatomic) CGFloat width;
 
 /**
- type = 0、1时有效，抽屉伸出的高度，默认 280
+ type = 0、1、6时有效，抽屉伸出的高度，默认 280
  */
 @property (assign, nonatomic) CGFloat height;
+
+/**
+ type = 1、6时有效，默认0.85
+ */
+@property (assign, nonatomic) CGFloat scale;
 
 - (instancetype)initWithPresentViewController:(UIViewController *)presentViewController;
 

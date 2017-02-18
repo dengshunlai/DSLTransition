@@ -120,6 +120,16 @@
     self.dsl_animatedTransitioning.height = dsl_transition_height;
 }
 
+- (CGFloat)dsl_transition_scale
+{
+    return self.dsl_animatedTransitioning.scale;
+}
+
+- (void)setDsl_transition_scale:(CGFloat)dsl_transition_scale
+{
+    self.dsl_animatedTransitioning.scale = dsl_transition_scale;
+}
+
 - (void)dsl_transition_setFromView:(UIView *)fromView toView:(UIView *)toView
 {
     self.dsl_transition_fromView = fromView;
@@ -132,7 +142,9 @@
         viewController.transitioningDelegate = self.dsl_animatedTransitioning;
         self.dsl_animatedTransitioning.presentViewController = viewController;
     } else {
-        viewController.transitioningDelegate = nil;
+        if ([viewController.transitioningDelegate isKindOfClass:[DSLAnimatedTransitioning class]]) {
+            viewController.transitioningDelegate = nil;
+        }
     }
     [self dsl_presentViewController:viewController animated:YES completion:completion];
 }
