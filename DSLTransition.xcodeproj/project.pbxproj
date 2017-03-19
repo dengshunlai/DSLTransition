@@ -486,7 +486,7 @@
 				DEVELOPMENT_TEAM = QTRV8G9WAU;
 				INFOPLIST_FILE = DSLTransitionExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLTransition;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dengshunlai.DSLTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -498,7 +498,7 @@
 				DEVELOPMENT_TEAM = QTRV8G9WAU;
 				INFOPLIST_FILE = DSLTransitionExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLTransition;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dengshunlai.DSLTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

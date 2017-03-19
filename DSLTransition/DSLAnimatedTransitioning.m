@@ -96,7 +96,7 @@
             [containerView insertSubview:toView belowSubview:bgView];
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                bgView.alpha = 1;
+                bgView.alpha = 0;
                 fromView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, _height);
             } completion:^(BOOL finished) {
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
