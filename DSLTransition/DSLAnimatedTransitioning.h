@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, DSLTransitionType) {
+    DSLTransitionTypeNone = 0,
+    DSLTransitionType1,
+    DSLTransitionType2,
+    DSLTransitionType3,
+    DSLTransitionType4,
+    DSLTransitionType5,
+    DSLTransitionType6,
+    DSLTransitionType7
+};
+
 @interface DSLAnimatedTransitioning : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, CAAnimationDelegate>
 
 /**
@@ -31,40 +42,38 @@
 @property (assign, nonatomic) BOOL isInteractive;
 
 /**
- type = 2 时有效
+ type = 3 时有效
  */
 @property (weak, nonatomic) UIView *fromView;
 
 /**
- type = 2 时有效
+ type = 3 时有效
  */
 @property (weak, nonatomic) UIView *toView;
 
 /**
- type = 3时有效，转场开始时，圆圈的位置、大小
+ type = 4时有效，转场开始时，圆圈的位置、大小
  */
 @property (assign, nonatomic) CGRect fromRect;
 
 /**
- type = 4时有效，视窗大小
+ type = 5时有效，视窗大小
  */
 @property (assign, nonatomic) CGSize size;
 
 /**
- type = 5时有效，抽屉伸出的宽度，默认 屏幕宽度-70
+ type = 6时有效，抽屉伸出的宽度，默认 屏幕宽度-70
  */
 @property (assign, nonatomic) CGFloat width;
 
 /**
- type = 0、1、6时有效，抽屉伸出的高度，默认 280
+ type = 1、2、7时有效，抽屉伸出的高度，默认 280
  */
 @property (assign, nonatomic) CGFloat height;
 
 /**
- type = 1、6时有效，默认0.85
+ type = 2、7时有效，默认0.85
  */
 @property (assign, nonatomic) CGFloat scale;
-
-- (instancetype)initWithPresentViewController:(UIViewController *)presentViewController;
 
 @end

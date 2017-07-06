@@ -25,22 +25,12 @@
     });
 }
 
-- (BOOL)dsl_transitionEnabled
-{
-    return [objc_getAssociatedObject(self, @selector(dsl_transitionEnabled)) boolValue];
-}
-
-- (void)setDsl_transitionEnabled:(BOOL)dsl_transitionEnabled
-{
-    objc_setAssociatedObject(self, @selector(dsl_transitionEnabled), [NSNumber numberWithBool:dsl_transitionEnabled], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
 - (DSLAnimatedTransitioning *)dsl_animatedTransitioning
 {
     DSLAnimatedTransitioning *animator = objc_getAssociatedObject(self, @selector(dsl_animatedTransitioning));
     if (!animator) {
         self.dsl_animatedTransitioning = animator = [[DSLAnimatedTransitioning alloc] init];
-        animator.presentSenderViewController = self;
+        animator.presentViewController = self;
     }
     return animator;
 }
@@ -50,12 +40,12 @@
     objc_setAssociatedObject(self, @selector(dsl_animatedTransitioning), dsl_animatedTransitioning, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (NSInteger)dsl_transitionType
+- (DSLTransitionType)dsl_transitionType
 {
     return self.dsl_animatedTransitioning.type;
 }
 
-- (void)setDsl_transitionType:(NSInteger)dsl_transitionType
+- (void)setDsl_transitionType:(DSLTransitionType)dsl_transitionType
 {
     self.dsl_animatedTransitioning.type = dsl_transitionType;
 }
@@ -138,9 +128,9 @@
 
 - (void)dsl_presentViewController:(UIViewController *)viewController animated:(BOOL)flag completion:(void (^)(void))completion
 {
-    if (self.dsl_transitionEnabled) {
-        viewController.transitioningDelegate = self.dsl_animatedTransitioning;
-        self.dsl_animatedTransitioning.presentViewController = viewController;
+    if (viewController.dsl_transitionType != DSLTransitionTypeNone) {
+        viewController.transitioningDelegate = viewController.dsl_animatedTransitioning;
+        viewController.dsl_animatedTransitioning.presentSenderViewController = self;
     } else {
         if ([viewController.transitioningDelegate isKindOfClass:[DSLAnimatedTransitioning class]]) {
             viewController.transitioningDelegate = nil;

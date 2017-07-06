@@ -19,19 +19,11 @@
 
 @implementation DSLAnimatedTransitioning
 
-- (instancetype)initWithPresentViewController:(UIViewController *)presentViewController
-{
-    self = [super init];
-    if (self) {
-        _presentViewController = presentViewController;
-    }
-    return self;
-}
-
 - (instancetype)init
 {
     self = [super init];
     if (self) {
+        _type = DSLTransitionTypeNone;
         _width = kScreenWidth - 70;
         _height = 280;
         _scale = 0.85;
@@ -39,15 +31,19 @@
     return self;
 }
 
+- (void)dealloc {
+    ;
+}
+
 #pragma mark - UIViewControllerAnimatedTransitioning
 
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext
 {
     switch (_type) {
-        case 3:
+        case DSLTransitionType4:
             return 0.55;
             break;
-        case 4:
+        case DSLTransitionType5:
             return 0.25;
             break;
         default:
@@ -64,12 +60,12 @@
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *containerView = [transitionContext containerView];
     
-    if (_type == 0) {
+    if (_type == DSLTransitionType1) {
         if (_isPresent) {
             UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
             bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
             bgView.alpha = 0;
-            bgView.tag = 2000;
+            bgView.tag = 2001;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureDismissTap:)];
             [bgView addGestureRecognizer:tap];
             
@@ -88,7 +84,7 @@
         } else {
             UIView *bgView;
             for (UIView *view in containerView.subviews) {
-                if (view.tag == 2000) {
+                if (view.tag == 2001) {
                     bgView = view;
                 }
             }
@@ -102,7 +98,7 @@
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         }
-    } else if (_type == 1) {
+    } else if (_type == DSLTransitionType2) {
         if (_isPresent) {
             toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, _height);
             toView.layer.cornerRadius = 10;
@@ -123,7 +119,7 @@
                 toView.frame = CGRectMake(0, kScreenHeight - _height, kScreenWidth, _height);
             } completion:^(BOOL finished) {
                 UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:NO];
-                fromViewSnapshot.tag = 2001;
+                fromViewSnapshot.tag = 2002;
                 fromViewSnapshot.transform = CGAffineTransformScale(fromViewSnapshot.transform, _scale, _scale);
                 [containerView insertSubview:fromViewSnapshot belowSubview:toView];
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
@@ -135,7 +131,7 @@
         } else {
             UIView *toViewSnapshot;
             for (UIView *view in containerView.subviews) {
-                if (view.tag == 2001) {
+                if (view.tag == 2002) {
                     toViewSnapshot = view;
                 }
             }
@@ -153,7 +149,7 @@
                 [toView.layer addAnimation:cornerAnimation forKey:@"cornerRadius"];
             }];
         }
-    } else if (_type == 2) {
+    } else if (_type == DSLTransitionType3) {
         if (_isPresent) {
             toView.alpha = 0;
             toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
@@ -189,7 +185,7 @@
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         }
-    } else if (_type == 3) {
+    } else if (_type == DSLTransitionType4) {
         if (_isPresent) {
             toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
             [containerView addSubview:toView];
@@ -239,12 +235,12 @@
             [animation setValue:transitionContext forKey:@"transitionContext"];
             [maskLayer addAnimation:animation forKey:@"path"];
         }
-    } else if (_type == 4) {
+    } else if (_type == DSLTransitionType5) {
         if (_isPresent) {
             UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
             bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
             bgView.alpha = 0;
-            bgView.tag = 2004;
+            bgView.tag = 2005;
             [containerView addSubview:bgView];
             
             toView.frame = CGRectMake(0, 0, _size.width, _size.height);
@@ -266,7 +262,7 @@
         } else {
             UIView *bgView;
             for (UIView *view in containerView.subviews) {
-                if (view.tag == 2004) {
+                if (view.tag == 2005) {
                     bgView = view;
                 }
             }
@@ -277,14 +273,14 @@
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         }
-    } else if (_type == 5) {
+    } else if (_type == DSLTransitionType6) {
         if (_isPresent) {
             toView.frame = CGRectMake(-_width, 0, _width, kScreenHeight);
             
             UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];;
             bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
             bgView.alpha = 0;
-            bgView.tag = 2005;
+            bgView.tag = 2006;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureDismissTap:)];
             [bgView addGestureRecognizer:tap];
             
@@ -304,7 +300,7 @@
         } else {
             UIView *bgView;
             for (UIView *view in containerView.subviews) {
-                if (view.tag == 2005) {
+                if (view.tag == 2006) {
                     bgView = view;
                 }
             }
@@ -318,7 +314,7 @@
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         }
-    } else if (_type == 6) {
+    } else if (_type == DSLTransitionType7) {
         if (_isPresent) {
             toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, _height);
             [containerView addSubview:toView];
@@ -326,7 +322,7 @@
             UIView *bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
             bg.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
             [containerView insertSubview:bg belowSubview:toView];
-            bg.tag = 20062;
+            bg.tag = 20071;
             bg.alpha = 0;
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -335,7 +331,7 @@
                 bg.alpha = 1;
             } completion:^(BOOL finished) {
                 UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:NO];
-                fromViewSnapshot.tag = 2006;
+                fromViewSnapshot.tag = 20072;
                 fromViewSnapshot.transform = CGAffineTransformScale(fromViewSnapshot.transform, _scale, _scale);
                 [containerView insertSubview:fromViewSnapshot belowSubview:bg];
                 
@@ -347,13 +343,13 @@
         } else {
             UIView *toViewSnapshot;
             for (UIView *view in containerView.subviews) {
-                if (view.tag == 2006) {
+                if (view.tag == 20072) {
                     toViewSnapshot = view;
                 }
             }
             UIView *bg;
             for (UIView *view in containerView.subviews) {
-                if (view.tag == 20062) {
+                if (view.tag == 20071) {
                     bg = view;
                 }
             }
@@ -391,10 +387,7 @@
 - (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator
 {
     switch (_type) {
-        case 0:
-            return nil;
-            break;
-        case 1:
+        case DSLTransitionType2:
             return _isInteractive ? self : nil;
             return nil;
             break;

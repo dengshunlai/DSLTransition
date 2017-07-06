@@ -12,14 +12,9 @@
 @interface UIViewController (DSLTransition)
 
 /**
- 是否开启自定义转场
+ 转场类型，默认DSLTransitionTypeNone
  */
-@property (assign, nonatomic) BOOL dsl_transitionEnabled;
-
-/**
- 转场类型 0-5
- */
-@property (assign, nonatomic) NSInteger dsl_transitionType;
+@property (assign, nonatomic) DSLTransitionType dsl_transitionType;
 
 /**
  转场动画控制器
@@ -27,43 +22,43 @@
 @property (strong, nonatomic, readonly) DSLAnimatedTransitioning *dsl_animatedTransitioning;
 
 /**
- type = 2 时有效
+ type = 3 时有效
  */
 @property (weak, nonatomic) UIView *dsl_transition_fromView;
 
 /**
- type = 2 时有效
+ type = 3 时有效
  */
 @property (weak, nonatomic) UIView *dsl_transition_toView;
 
 /**
- type = 3时有效，转场开始时，圆圈的位置、大小
+ type = 4时有效，转场开始时，圆圈的位置、大小
  */
 @property (assign, nonatomic) CGRect dsl_transition_fromRect;
 
 /**
- type = 4时有效，视窗大小
+ type = 5时有效，视窗大小
  */
 @property (assign, nonatomic) CGSize dsl_transition_size;
 
 /**
- type = 5时有效，抽屉伸出的宽度，默认 屏幕宽度-70
+ type = 6时有效，抽屉伸出的宽度，默认 屏幕宽度-70
  */
 @property (assign, nonatomic) CGFloat dsl_transition_width;
 
 /**
- type = 0、1、6时有效，抽屉伸出的高度，默认 280
+ type = 1、2、7时有效，抽屉伸出的高度，默认 280
  */
 @property (assign, nonatomic) CGFloat dsl_transition_height;
 
 /**
- type = 1、6时有效，默认0.85
+ type = 2、7时有效，默认0.85
  */
 @property (assign, nonatomic) CGFloat dsl_transition_scale;
 
 /**
  设置dsl_transition_fromView、dsl_transition_toView
- type = 2 时有效
+ type = 3 时有效
 
  @param fromView dsl_transition_fromView
  @param toView   dsl_transition_toView

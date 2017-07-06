@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZAd-a1-uNt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZAd-a1-uNt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,17 +22,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxJ-9F-ef2">
-                                <rect key="frame" x="164" y="80" width="47" height="30"/>
-                                <state key="normal" title="type=1"/>
+                                <rect key="frame" x="163" y="80" width="49" height="30"/>
+                                <state key="normal" title="type=2"/>
                                 <connections>
-                                    <action selector="type1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cHr-4M-2Yh"/>
+                                    <action selector="type2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dme-Pc-d70"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7I-pP-cyB">
-                                <rect key="frame" x="162.5" y="25" width="50" height="30"/>
-                                <state key="normal" title="type=0"/>
+                                <rect key="frame" x="164.5" y="25" width="47" height="30"/>
+                                <state key="normal" title="type=1"/>
                                 <connections>
-                                    <action selector="type0:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jVF-eg-cKG"/>
+                                    <action selector="type1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJV-pj-wXP"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="9PQ-3s-Hz8">
@@ -81,30 +81,30 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5k-Eh-qiR">
                                 <rect key="frame" x="162.5" y="135" width="50" height="30"/>
-                                <state key="normal" title="type=3"/>
+                                <state key="normal" title="type=4"/>
                                 <connections>
-                                    <action selector="type3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x8R-Hc-0LO"/>
+                                    <action selector="type4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="faE-Xf-ILj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7N-TB-UGX">
-                                <rect key="frame" x="162.5" y="190" width="50" height="30"/>
-                                <state key="normal" title="type=4"/>
+                                <rect key="frame" x="163.5" y="190" width="49" height="30"/>
+                                <state key="normal" title="type=5"/>
                                 <connections>
-                                    <action selector="type4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sIh-K5-ehp"/>
+                                    <action selector="type5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="etJ-89-tyG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82G-Qk-c8e">
-                                <rect key="frame" x="163" y="245" width="49" height="30"/>
-                                <state key="normal" title="type=5"/>
+                                <rect key="frame" x="163" y="245" width="50" height="30"/>
+                                <state key="normal" title="type=6"/>
                                 <connections>
-                                    <action selector="type5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NZf-l0-73D"/>
+                                    <action selector="type6:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6vG-uI-J3a"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUC-cB-rVY">
-                                <rect key="frame" x="162.5" y="300" width="50" height="30"/>
-                                <state key="normal" title="type=6"/>
+                                <rect key="frame" x="163.5" y="300" width="49" height="30"/>
+                                <state key="normal" title="type=7"/>
                                 <connections>
-                                    <action selector="type6:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lRg-Ep-FE5"/>
+                                    <action selector="type7:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yMw-Qu-wrk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -141,22 +141,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="FXB-Ec-ZFT">
                     <connections>
-                        <action selector="type2:" destination="BYZ-38-t0r" id="AAU-e6-Ynu"/>
+                        <action selector="type3:" destination="BYZ-38-t0r" id="PoI-pJ-K66"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="k6X-1b-VfH">
                     <connections>
-                        <action selector="type2:" destination="BYZ-38-t0r" id="gKK-kp-2xS"/>
+                        <action selector="type3:" destination="BYZ-38-t0r" id="Gx3-O3-3bP"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="0Sa-sX-Fyz">
                     <connections>
-                        <action selector="type2:" destination="BYZ-38-t0r" id="j1V-X4-s8y"/>
+                        <action selector="type3:" destination="BYZ-38-t0r" id="0ad-ww-fMD"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="WzG-Oz-c8k">
                     <connections>
-                        <action selector="type2:" destination="BYZ-38-t0r" id="UZ6-DN-nDa"/>
+                        <action selector="type3:" destination="BYZ-38-t0r" id="0Yo-O4-ddG"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
