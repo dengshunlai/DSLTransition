@@ -5,16 +5,12 @@
 ```
 #import "UIViewController+DSLTransition.h"
 
-//开启自定义转场
-self.dsl_transitionEnabled = YES;
-//关闭
-//self.dsl_transitionEnabled = NO;
-
-//设置转场类型
-self.dsl_transitionType = 1;
-//present
+NextViewController *vc = [[NextViewController alloc] init];
+//设置转场类型,0是系统默认的转场
+vc.dsl_transitionType = 1;
+//present方法不变
 [self presentViewController:vc animated:YES completion:nil];
-//dismiss
+//dismiss方法不变
 [self dismissViewControllerAnimated:YES completion:nil];
 ```
 其他参数设置详见Demo

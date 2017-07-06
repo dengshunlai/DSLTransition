@@ -14,6 +14,7 @@
 		DD3871F21DC0CF5E000055A0 /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD3871F01DC0CF5E000055A0 /* PictureViewController.xib */; };
 		DD69EE441F0E601C00B7CAED /* DSLAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69EE411F0E601C00B7CAED /* DSLAnimatedTransitioning.m */; };
 		DD69EE451F0E601C00B7CAED /* UIViewController+DSLTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69EE431F0E601C00B7CAED /* UIViewController+DSLTransition.m */; };
+		DD69EE471F0E7F5500B7CAED /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = DD69EE461F0E7F5500B7CAED /* README.md */; };
 		DDA96F3D1DC2671C00651C5E /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = DDA96F3C1DC2671C00651C5E /* 1.jpeg */; };
 		DDD0D5711DBE666A00C06C5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5701DBE666A00C06C5B /* main.m */; };
 		DDD0D5741DBE666A00C06C5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0D5731DBE666A00C06C5B /* AppDelegate.m */; };
@@ -55,6 +56,7 @@
 		DD69EE411F0E601C00B7CAED /* DSLAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLAnimatedTransitioning.m; sourceTree = "<group>"; };
 		DD69EE421F0E601C00B7CAED /* UIViewController+DSLTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DSLTransition.h"; sourceTree = "<group>"; };
 		DD69EE431F0E601C00B7CAED /* UIViewController+DSLTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DSLTransition.m"; sourceTree = "<group>"; };
+		DD69EE461F0E7F5500B7CAED /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DDA96F3C1DC2671C00651C5E /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		DDD0D56C1DBE666A00C06C5B /* DSLTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSLTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDD0D5701DBE666A00C06C5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		DDD0D5631DBE666A00C06C5B = {
 			isa = PBXGroup;
 			children = (
+				DD69EE461F0E7F5500B7CAED /* README.md */,
 				DD69EE3F1F0E601C00B7CAED /* DSLTransition */,
 				DDD0D56E1DBE666A00C06C5B /* DSLTransitionExample */,
 				DDD0D5881DBE666A00C06C5B /* DSLTransitionTests */,
@@ -334,6 +337,7 @@
 				DD3871F11DC0CF5E000055A0 /* PictureViewController.m in Sources */,
 				DDD0D5741DBE666A00C06C5B /* AppDelegate.m in Sources */,
 				DDD0D5711DBE666A00C06C5B /* main.m in Sources */,
+				DD69EE471F0E7F5500B7CAED /* README.md in Sources */,
 				DD69EE451F0E601C00B7CAED /* UIViewController+DSLTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
