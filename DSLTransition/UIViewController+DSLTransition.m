@@ -136,7 +136,7 @@
             viewController.transitioningDelegate = nil;
         }
     }
-    [self dsl_presentViewController:viewController animated:YES completion:completion];
+    [self dsl_presentViewController:viewController animated:flag completion:completion];
 }
 
 @end
