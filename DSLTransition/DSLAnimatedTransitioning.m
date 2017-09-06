@@ -27,6 +27,7 @@
         _width = kScreenWidth - 70;
         _height = 280;
         _scale = 0.85;
+        _size = CGSizeMake(280, 280);
     }
     return self;
 }

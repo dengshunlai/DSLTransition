@@ -87,7 +87,7 @@
     vc.view.layer.cornerRadius = 10;
     vc.view.layer.masksToBounds = YES;
     vc.dsl_transitionType = 5;
-    vc.dsl_transition_size = CGSizeMake(250, 250);
+//    vc.dsl_transition_size = CGSizeMake(250, 250);
     [self presentViewController:vc animated:YES completion:nil];
 }
 
