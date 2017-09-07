@@ -55,14 +55,14 @@
 //各种转场效果
 - (IBAction)type1:(UIButton *)sender {
     NextViewController *vc = [[NextViewController alloc] init];
-    vc.dsl_transitionType = 1;
+    vc.dsl_transitionType = DSLTransitionType1;
     vc.dsl_transition_height = 350;
     [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)type2:(UIButton *)sender {
     NextViewController *vc = [[NextViewController alloc] init];
-    vc.dsl_transitionType = 2;
+    vc.dsl_transitionType = DSLTransitionType2;
     vc.dsl_transition_height = 450;
     [self presentViewController:vc animated:YES completion:nil];
 }
@@ -70,14 +70,14 @@
 - (IBAction)type3:(UITapGestureRecognizer *)sender {
     UIImageView *iv = (UIImageView *)sender.view;
     PictureViewController *vc = [[PictureViewController alloc] initWithImage:iv.image];
-    vc.dsl_transitionType = 3;
+    vc.dsl_transitionType = DSLTransitionType3;
     [vc dsl_transition_setFromView:sender.view toView:vc.imageView];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)type4:(UIButton *)sender {
     PictureViewController *vc = [[PictureViewController alloc] initWithImage:[UIImage imageNamed:@"2.jpg"]];
-    vc.dsl_transitionType = 4;
+    vc.dsl_transitionType = DSLTransitionType4;
     vc.dsl_transition_fromRect = sender.frame;
     [self presentViewController:vc animated:YES completion:nil];
 }
@@ -86,21 +86,30 @@
     NextViewController *vc = [[NextViewController alloc] init];
     vc.view.layer.cornerRadius = 10;
     vc.view.layer.masksToBounds = YES;
-    vc.dsl_transitionType = 5;
-//    vc.dsl_transition_size = CGSizeMake(250, 250);
+    vc.dsl_transitionType = DSLTransitionType5;
+    //vc.dsl_transition_size = CGSizeMake(250, 250);
     [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)type6:(UIButton *)sender {
     NextViewController *vc = [[NextViewController alloc] init];
-    vc.dsl_transitionType = 6;
+    vc.dsl_transitionType = DSLTransitionType6;
     [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)type7:(UIButton *)sender {
     NextViewController *vc = [[NextViewController alloc] init];
-    vc.dsl_transitionType = 7;
+    vc.dsl_transitionType = DSLTransitionType7;
     vc.dsl_transition_height = [UIScreen mainScreen].bounds.size.height - 64 - 50;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)type8:(UIButton *)sender {
+    NextViewController *vc = [[NextViewController alloc] init];
+    vc.view.layer.cornerRadius = 10;
+    vc.view.layer.masksToBounds = YES;
+    vc.dsl_transitionType = DSLTransitionType8;
+    //vc.dsl_transition_size = CGSizeMake(250, 250);
     [self presentViewController:vc animated:YES completion:nil];
 }
 

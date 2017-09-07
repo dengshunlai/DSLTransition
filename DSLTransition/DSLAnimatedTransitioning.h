@@ -16,7 +16,8 @@ typedef NS_ENUM(NSUInteger, DSLTransitionType) {
     DSLTransitionType4,
     DSLTransitionType5,
     DSLTransitionType6,
-    DSLTransitionType7
+    DSLTransitionType7,
+    DSLTransitionType8
 };
 
 @interface DSLAnimatedTransitioning : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, CAAnimationDelegate>
@@ -57,7 +58,7 @@ typedef NS_ENUM(NSUInteger, DSLTransitionType) {
 @property (assign, nonatomic) CGRect fromRect;
 
 /**
- type = 5时有效，视窗大小
+ type = 5、8时有效，视窗大小
  */
 @property (assign, nonatomic) CGSize size;
 

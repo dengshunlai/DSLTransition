@@ -47,6 +47,9 @@
         case DSLTransitionType5:
             return 0.25;
             break;
+        case DSLTransitionType8:
+            return 0.25;
+            break;
         default:
             return 0.35;
             break;
@@ -361,6 +364,52 @@
             } completion:^(BOOL finished) {
                 toView.transform = CGAffineTransformIdentity;
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            }];
+        }
+    } else if (_type == DSLTransitionType8) {
+        if (_isPresent) {
+            UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+            bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+            bgView.alpha = 0;
+            bgView.tag = 2008;
+            [containerView addSubview:bgView];
+            
+            toView.frame = CGRectMake(0, 0, _size.width, _size.height);
+            toView.center = containerView.center;toView.alpha = 0;
+            [containerView addSubview:toView];
+            
+            [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+                toView.transform = CGAffineTransformScale(toView.transform, 1.2, 1.2);
+                bgView.alpha = 1;toView.alpha = 1;
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.10 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                    toView.transform = CGAffineTransformIdentity;
+                } completion:^(BOOL finished) {
+                    UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:NO];
+                    [containerView insertSubview:fromViewSnapshot belowSubview:bgView];
+                    [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                    
+                    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureDismissTap:)];
+                    [bgView addGestureRecognizer:tap];
+                }];
+            }];
+        } else {
+            UIView *bgView;
+            for (UIView *view in containerView.subviews) {
+                if (view.tag == 2008) {
+                    bgView = view;
+                }
+            }
+            [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+                fromView.transform = CGAffineTransformScale(fromView.transform, 1.3, 1.3);
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+                    bgView.alpha = 0;
+                    fromView.transform = CGAffineTransformScale(fromView.transform, 0.05, 0.05);
+                    fromView.alpha = 0;
+                } completion:^(BOOL finished) {
+                    [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                }];
             }];
         }
     }
