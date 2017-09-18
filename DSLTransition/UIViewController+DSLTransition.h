@@ -42,7 +42,7 @@
 @property (assign, nonatomic) CGSize dsl_transition_size;
 
 /**
- type = 6时有效，抽屉伸出的宽度，默认 屏幕宽度-70
+ type = 6、9时有效，抽屉伸出的宽度，默认 屏幕宽度-70
  */
 @property (assign, nonatomic) CGFloat dsl_transition_width;
 

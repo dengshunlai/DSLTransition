@@ -412,6 +412,50 @@
                 }];
             }];
         }
+    } else if (_type == DSLTransitionType9) {
+        if (_isPresent) {
+            toView.frame = CGRectMake(-_width, 0, _width, kScreenHeight);
+            
+            UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];;
+            bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+            bgView.alpha = 0;
+            bgView.tag = 2009;
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureDismissTap:)];
+            [bgView addGestureRecognizer:tap];
+            
+            UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(gestureDismissPanX:)];
+            [toView addGestureRecognizer:pan];
+            
+            [containerView addSubview:bgView];
+            [containerView addSubview:toView];
+            
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                bgView.alpha = 1;
+                toView.frame = CGRectMake(0, 0, _width, kScreenHeight);
+                fromView.frame = CGRectMake(100, 0, kScreenWidth, kScreenHeight);
+            } completion:^(BOOL finished) {
+                UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:NO];
+                fromViewSnapshot.frame = CGRectMake(100, 0, kScreenWidth, kScreenHeight);
+                [containerView insertSubview:fromViewSnapshot belowSubview:bgView];
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            }];
+        } else {
+            UIView *bgView;
+            for (UIView *view in containerView.subviews) {
+                if (view.tag == 2009) {
+                    bgView = view;
+                }
+            }
+            [containerView insertSubview:toView belowSubview:bgView];
+            
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                bgView.alpha = 0;
+                toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+                fromView.frame = CGRectMake(-_width, 0, _width, kScreenHeight);
+            } completion:^(BOOL finished) {
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            }];
+        }
     }
 }
 
@@ -438,8 +482,8 @@
 {
     switch (_type) {
         case DSLTransitionType2:
+        case DSLTransitionType9:
             return _isInteractive ? self : nil;
-            return nil;
             break;
         default:
             return nil;
@@ -478,6 +522,42 @@
             CGPoint translation = [pan translationInView:pan.view];
             CGFloat percent = translation.y / 150.0;
             if (percent > 0.50) {
+                [self finishInteractiveTransition];
+            } else {
+                [self cancelInteractiveTransition];
+            }
+            _isInteractive = NO;
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)gestureDismissPanX:(UIPanGestureRecognizer *)pan
+{
+    switch (pan.state) {
+        case UIGestureRecognizerStateBegan:
+            _isInteractive = YES;
+            [_presentViewController dismissViewControllerAnimated:YES completion:nil];
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            CGPoint translation = [pan translationInView:pan.view];
+            CGFloat percent = -translation.x / _width;
+            if (percent >= 1) {
+                [self finishInteractiveTransition];
+            } else {
+                [self updateInteractiveTransition:percent];
+            }
+        }
+            break;
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+        {
+            CGPoint translation = [pan translationInView:pan.view];
+            CGFloat percent = -translation.x / _width;
+            if (percent > 0.30) {
                 [self finishInteractiveTransition];
             } else {
                 [self cancelInteractiveTransition];

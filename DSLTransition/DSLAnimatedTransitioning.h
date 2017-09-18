@@ -8,16 +8,30 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, DSLTransitionStyle) {
+    DSLTransitionStyleNone = 0,
+    DSLTransitionStyleBottomTranslationTap,
+    DSLTransitionStyleBottomTranslationPan,
+    DSLTransitionStyleFromTo,
+    DSLTransitionStyleCircularEnlarge,
+    DSLTransitionStyleCenterGradient,
+    DSLTransitionStyleLeftTransitionTap,
+    DSLTransitionStyleBottomTranslationScaleTap,
+    DSLTransitionStyleCenterSpring,
+    DSLTransitionStyleLeftTranslutionPan,
+};
+
 typedef NS_ENUM(NSUInteger, DSLTransitionType) {
-    DSLTransitionTypeNone = 0,
-    DSLTransitionType1,
-    DSLTransitionType2,
-    DSLTransitionType3,
-    DSLTransitionType4,
-    DSLTransitionType5,
-    DSLTransitionType6,
-    DSLTransitionType7,
-    DSLTransitionType8
+    DSLTransitionTypeNone = DSLTransitionStyleNone,
+    DSLTransitionType1 = DSLTransitionStyleBottomTranslationTap,
+    DSLTransitionType2 = DSLTransitionStyleBottomTranslationPan,
+    DSLTransitionType3 = DSLTransitionStyleFromTo,
+    DSLTransitionType4 = DSLTransitionStyleCircularEnlarge,
+    DSLTransitionType5 = DSLTransitionStyleCenterGradient,
+    DSLTransitionType6 = DSLTransitionStyleLeftTransitionTap,
+    DSLTransitionType7 = DSLTransitionStyleBottomTranslationScaleTap,
+    DSLTransitionType8 = DSLTransitionStyleCenterSpring,
+    DSLTransitionType9 = DSLTransitionStyleLeftTranslutionPan,
 };
 
 @interface DSLAnimatedTransitioning : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, CAAnimationDelegate>
@@ -25,7 +39,7 @@ typedef NS_ENUM(NSUInteger, DSLTransitionType) {
 /**
  转场类型
  */
-@property (assign, nonatomic) NSInteger type;
+@property (assign, nonatomic) DSLTransitionType type;
 
 /**
  被present的VC
@@ -63,7 +77,7 @@ typedef NS_ENUM(NSUInteger, DSLTransitionType) {
 @property (assign, nonatomic) CGSize size;
 
 /**
- type = 6时有效，抽屉伸出的宽度，默认 屏幕宽度-70
+ type = 6、9时有效，抽屉伸出的宽度，默认 屏幕宽度-70
  */
 @property (assign, nonatomic) CGFloat width;
 

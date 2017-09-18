@@ -27,9 +27,9 @@
     [self setupTopBar];
     
     _nextVC = [[NextViewController alloc] init];
-    _nextVC.dsl_transitionType = 6;
-    //添加一个手势，展示如何实现交互式present，动画采用type5
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(presentUseType6:)];
+    _nextVC.dsl_transitionType = DSLTransitionType9;
+    //添加一个手势，展示如何实现交互式present，动画采用type9
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(presentUseType9:)];
     [self.view addGestureRecognizer:pan];
 }
 
@@ -113,9 +113,16 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (IBAction)type9:(UIButton *)sender {
+    NextViewController *vc = [[NextViewController alloc] init];
+//    vc.dsl_transitionType = DSLTransitionType9;
+    vc.dsl_transitionType = DSLTransitionStyleLeftTranslutionPan;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 #pragma mark - Gesture
 //右划出现抽屉的效果
-- (void)presentUseType6:(UIPanGestureRecognizer *)pan
+- (void)presentUseType9:(UIPanGestureRecognizer *)pan
 {
     switch (pan.state) {
         case UIGestureRecognizerStateBegan:
