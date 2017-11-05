@@ -115,7 +115,6 @@
 
 - (IBAction)type9:(UIButton *)sender {
     NextViewController *vc = [[NextViewController alloc] init];
-//    vc.dsl_transitionType = DSLTransitionType9;
     vc.dsl_transitionType = DSLTransitionStyleLeftTranslutionPan;
     [self presentViewController:vc animated:YES completion:nil];
 }
