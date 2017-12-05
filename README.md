@@ -14,3 +14,7 @@ vc.dsl_transitionType = 1;
 [self dismissViewControllerAnimated:YES completion:nil];
 ```
 其他参数设置详见Demo
+
+
+## 支持cocoapods
+pod 'DSLTransition'
