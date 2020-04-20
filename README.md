@@ -15,6 +15,3 @@ vc.dsl_transitionType = 1;
 ```
 其他参数设置详见Demo
 
-
-## 支持cocoapods
-pod 'DSLTransition'
