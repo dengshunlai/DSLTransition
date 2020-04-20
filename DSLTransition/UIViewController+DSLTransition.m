@@ -131,6 +131,7 @@
     if (viewController.dsl_transitionType != DSLTransitionTypeNone) {
         viewController.transitioningDelegate = viewController.dsl_animatedTransitioning;
         viewController.dsl_animatedTransitioning.presentSenderViewController = self;
+        viewController.modalPresentationStyle = UIModalPresentationFullScreen;
     } else {
         if ([viewController.transitioningDelegate isKindOfClass:[DSLAnimatedTransitioning class]]) {
             viewController.transitioningDelegate = nil;
