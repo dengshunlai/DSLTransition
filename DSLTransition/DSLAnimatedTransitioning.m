@@ -86,12 +86,7 @@
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         } else {
-            UIView *bgView;
-            for (UIView *view in containerView.subviews) {
-                if (view.tag == 2001) {
-                    bgView = view;
-                }
-            }
+            UIView *bgView = [containerView viewWithTag:2001];
             toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
             [containerView insertSubview:toView belowSubview:bgView];
             
@@ -133,12 +128,7 @@
                 [fromView.layer removeAnimationForKey:@"cornerRadius"];
             }];
         } else {
-            UIView *toViewSnapshot;
-            for (UIView *view in containerView.subviews) {
-                if (view.tag == 2002) {
-                    toViewSnapshot = view;
-                }
-            }
+            UIView *toViewSnapshot = [containerView viewWithTag:2002];
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 toViewSnapshot.transform = CGAffineTransformIdentity;
                 fromView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, _height);
@@ -264,12 +254,7 @@
                 [bgView addGestureRecognizer:tap];
             }];
         } else {
-            UIView *bgView;
-            for (UIView *view in containerView.subviews) {
-                if (view.tag == 2005) {
-                    bgView = view;
-                }
-            }
+            UIView *bgView = [containerView viewWithTag:2005];
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
                 bgView.alpha = 0;
                 fromView.alpha = 0;
@@ -302,12 +287,7 @@
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         } else {
-            UIView *bgView;
-            for (UIView *view in containerView.subviews) {
-                if (view.tag == 2006) {
-                    bgView = view;
-                }
-            }
+            UIView *bgView = [containerView viewWithTag:2006];
             [containerView insertSubview:toView belowSubview:bgView];
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -345,18 +325,8 @@
                 [bg addGestureRecognizer:tap];
             }];
         } else {
-            UIView *toViewSnapshot;
-            for (UIView *view in containerView.subviews) {
-                if (view.tag == 20072) {
-                    toViewSnapshot = view;
-                }
-            }
-            UIView *bg;
-            for (UIView *view in containerView.subviews) {
-                if (view.tag == 20071) {
-                    bg = view;
-                }
-            }
+            UIView *toViewSnapshot = [containerView viewWithTag:20072];
+            UIView *bg = [containerView viewWithTag:20071];
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 toViewSnapshot.transform = CGAffineTransformIdentity;
                 fromView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, _height);
@@ -394,12 +364,7 @@
                 }];
             }];
         } else {
-            UIView *bgView;
-            for (UIView *view in containerView.subviews) {
-                if (view.tag == 2008) {
-                    bgView = view;
-                }
-            }
+            UIView *bgView = [containerView viewWithTag:2008];
             [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
                 fromView.transform = CGAffineTransformScale(fromView.transform, 1.3, 1.3);
             } completion:^(BOOL finished) {
@@ -440,12 +405,7 @@
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         } else {
-            UIView *bgView;
-            for (UIView *view in containerView.subviews) {
-                if (view.tag == 2009) {
-                    bgView = view;
-                }
-            }
+            UIView *bgView = [containerView viewWithTag:2009];
             [containerView insertSubview:toView belowSubview:bgView];
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{

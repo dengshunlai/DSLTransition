@@ -48,6 +48,7 @@
 //原生present转场
 - (void)normal {
     NextViewController *vc = [[NextViewController alloc] init];
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -115,7 +116,7 @@
 
 - (IBAction)type9:(UIButton *)sender {
     NextViewController *vc = [[NextViewController alloc] init];
-    vc.dsl_transitionType = DSLTransitionStyleLeftTranslutionPan;
+    vc.dsl_transitionType = DSLTransitionType9;
     [self presentViewController:vc animated:YES completion:nil];
 }
 
