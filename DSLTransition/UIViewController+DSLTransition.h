@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DSLAnimatedTransitioning.h"
+#import "VCInteractiveAnimator.h"
 
 @interface UIViewController (DSLTransition)
 
@@ -19,7 +19,7 @@
 /**
  转场动画控制器
  */
-@property (strong, nonatomic, readonly) DSLAnimatedTransitioning *dsl_animatedTransitioning;
+@property (strong, nonatomic, readonly) VCInteractiveAnimator *dsl_animatedTransitioning;
 
 /**
  type = 3 时有效

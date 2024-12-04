@@ -120,6 +120,12 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (IBAction)type10:(UIButton *)sender {
+    NextViewController *vc = [[NextViewController alloc] init];
+    vc.dsl_transitionType = DSLTransitionType10;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 #pragma mark - Gesture
 //右划出现抽屉的效果
 - (void)presentUseType9:(UIPanGestureRecognizer *)pan

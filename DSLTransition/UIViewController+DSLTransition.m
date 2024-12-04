@@ -25,17 +25,17 @@
     });
 }
 
-- (DSLAnimatedTransitioning *)dsl_animatedTransitioning
+- (VCInteractiveAnimator *)dsl_animatedTransitioning
 {
-    DSLAnimatedTransitioning *animator = objc_getAssociatedObject(self, @selector(dsl_animatedTransitioning));
+    VCInteractiveAnimator *animator = objc_getAssociatedObject(self, @selector(dsl_animatedTransitioning));
     if (!animator) {
-        self.dsl_animatedTransitioning = animator = [[DSLAnimatedTransitioning alloc] init];
+        self.dsl_animatedTransitioning = animator = [[VCInteractiveAnimator alloc] init];
         animator.presentViewController = self;
     }
     return animator;
 }
 
-- (void)setDsl_animatedTransitioning:(DSLAnimatedTransitioning *)dsl_animatedTransitioning
+- (void)setDsl_animatedTransitioning:(VCInteractiveAnimator *)dsl_animatedTransitioning
 {
     objc_setAssociatedObject(self, @selector(dsl_animatedTransitioning), dsl_animatedTransitioning, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -133,7 +133,7 @@
         viewController.dsl_animatedTransitioning.presentSenderViewController = self;
         viewController.modalPresentationStyle = UIModalPresentationFullScreen;
     } else {
-        if ([viewController.transitioningDelegate isKindOfClass:[DSLAnimatedTransitioning class]]) {
+        if ([viewController.transitioningDelegate isKindOfClass:[VCInteractiveAnimator class]]) {
             viewController.transitioningDelegate = nil;
         }
     }

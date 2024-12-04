@@ -12,7 +12,7 @@
 		D6E9C58B1DC208DA00F44AA2 /* 4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6E9C5881DC208DA00F44AA2 /* 4.jpeg */; };
 		DD3871F11DC0CF5E000055A0 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3871EF1DC0CF5E000055A0 /* PictureViewController.m */; };
 		DD3871F21DC0CF5E000055A0 /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD3871F01DC0CF5E000055A0 /* PictureViewController.xib */; };
-		DD69EE441F0E601C00B7CAED /* DSLAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69EE411F0E601C00B7CAED /* DSLAnimatedTransitioning.m */; };
+		DD69EE441F0E601C00B7CAED /* VCInteractiveAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69EE411F0E601C00B7CAED /* VCInteractiveAnimator.m */; };
 		DD69EE451F0E601C00B7CAED /* UIViewController+DSLTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69EE431F0E601C00B7CAED /* UIViewController+DSLTransition.m */; };
 		DD69EE471F0E7F5500B7CAED /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = DD69EE461F0E7F5500B7CAED /* README.md */; };
 		DDA96F3D1DC2671C00651C5E /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = DDA96F3C1DC2671C00651C5E /* 1.jpeg */; };
@@ -53,8 +53,8 @@
 		DD3871EE1DC0CF5E000055A0 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
 		DD3871EF1DC0CF5E000055A0 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
 		DD3871F01DC0CF5E000055A0 /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
-		DD69EE401F0E601C00B7CAED /* DSLAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLAnimatedTransitioning.h; sourceTree = "<group>"; };
-		DD69EE411F0E601C00B7CAED /* DSLAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLAnimatedTransitioning.m; sourceTree = "<group>"; };
+		DD69EE401F0E601C00B7CAED /* VCInteractiveAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInteractiveAnimator.h; sourceTree = "<group>"; };
+		DD69EE411F0E601C00B7CAED /* VCInteractiveAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInteractiveAnimator.m; sourceTree = "<group>"; };
 		DD69EE421F0E601C00B7CAED /* UIViewController+DSLTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DSLTransition.h"; sourceTree = "<group>"; };
 		DD69EE431F0E601C00B7CAED /* UIViewController+DSLTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DSLTransition.m"; sourceTree = "<group>"; };
 		DD69EE461F0E7F5500B7CAED /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -109,8 +109,8 @@
 		DD69EE3F1F0E601C00B7CAED /* DSLTransition */ = {
 			isa = PBXGroup;
 			children = (
-				DD69EE401F0E601C00B7CAED /* DSLAnimatedTransitioning.h */,
-				DD69EE411F0E601C00B7CAED /* DSLAnimatedTransitioning.m */,
+				DD69EE401F0E601C00B7CAED /* VCInteractiveAnimator.h */,
+				DD69EE411F0E601C00B7CAED /* VCInteractiveAnimator.m */,
 				DD69EE421F0E601C00B7CAED /* UIViewController+DSLTransition.h */,
 				DD69EE431F0E601C00B7CAED /* UIViewController+DSLTransition.m */,
 			);
@@ -338,7 +338,7 @@
 			files = (
 				DDD0D5AC1DBE675A00C06C5B /* NextViewController.m in Sources */,
 				DDD0D5771DBE666A00C06C5B /* ViewController.m in Sources */,
-				DD69EE441F0E601C00B7CAED /* DSLAnimatedTransitioning.m in Sources */,
+				DD69EE441F0E601C00B7CAED /* VCInteractiveAnimator.m in Sources */,
 				DD3871F11DC0CF5E000055A0 /* PictureViewController.m in Sources */,
 				DDD0D5741DBE666A00C06C5B /* AppDelegate.m in Sources */,
 				DDD0D5711DBE666A00C06C5B /* main.m in Sources */,

@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, DSLTransitionStyle) {
     DSLTransitionStyleBottomTranslationScaleTap,
     DSLTransitionStyleCenterSpring,
     DSLTransitionStyleLeftTranslutionPan,
+    DSLTransitionStyleRightTranslutionPan,
 };
 
 typedef NS_ENUM(NSUInteger, DSLTransitionType) {
@@ -32,9 +33,10 @@ typedef NS_ENUM(NSUInteger, DSLTransitionType) {
     DSLTransitionType7 = DSLTransitionStyleBottomTranslationScaleTap,
     DSLTransitionType8 = DSLTransitionStyleCenterSpring,
     DSLTransitionType9 = DSLTransitionStyleLeftTranslutionPan,
+    DSLTransitionType10 = DSLTransitionStyleRightTranslutionPan,
 };
 
-@interface DSLAnimatedTransitioning : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, CAAnimationDelegate>
+@interface VCInteractiveAnimator : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, CAAnimationDelegate>
 
 /**
  转场类型
