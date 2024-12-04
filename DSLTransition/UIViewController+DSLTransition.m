@@ -25,99 +25,99 @@
     });
 }
 
-- (VCInteractiveAnimator *)dsl_animatedTransitioning
+- (VCInteractiveAnimator *)dsl_interactiveAnimator
 {
-    VCInteractiveAnimator *animator = objc_getAssociatedObject(self, @selector(dsl_animatedTransitioning));
+    VCInteractiveAnimator *animator = objc_getAssociatedObject(self, @selector(dsl_interactiveAnimator));
     if (!animator) {
-        self.dsl_animatedTransitioning = animator = [[VCInteractiveAnimator alloc] init];
+        self.dsl_interactiveAnimator = animator = [[VCInteractiveAnimator alloc] init];
         animator.presentViewController = self;
     }
     return animator;
 }
 
-- (void)setDsl_animatedTransitioning:(VCInteractiveAnimator *)dsl_animatedTransitioning
+- (void)setDsl_interactiveAnimator:(VCInteractiveAnimator *)dsl_interactiveAnimator
 {
-    objc_setAssociatedObject(self, @selector(dsl_animatedTransitioning), dsl_animatedTransitioning, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(dsl_interactiveAnimator), dsl_interactiveAnimator, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (DSLTransitionType)dsl_transitionType
 {
-    return self.dsl_animatedTransitioning.type;
+    return self.dsl_interactiveAnimator.type;
 }
 
 - (void)setDsl_transitionType:(DSLTransitionType)dsl_transitionType
 {
-    self.dsl_animatedTransitioning.type = dsl_transitionType;
+    self.dsl_interactiveAnimator.type = dsl_transitionType;
 }
 
 - (UIView *)dsl_transition_fromView
 {
-    return self.dsl_animatedTransitioning.fromView;
+    return self.dsl_interactiveAnimator.fromView;
 }
 
 - (void)setDsl_transition_fromView:(UIView *)dsl_transition_fromView
 {
-    self.dsl_animatedTransitioning.fromView = dsl_transition_fromView;
+    self.dsl_interactiveAnimator.fromView = dsl_transition_fromView;
 }
 
 - (UIView *)dsl_transition_toView
 {
-    return self.dsl_animatedTransitioning.toView;
+    return self.dsl_interactiveAnimator.toView;
 }
 
 - (void)setDsl_transition_toView:(UIView *)dsl_transition_toView
 {
-    self.dsl_animatedTransitioning.toView = dsl_transition_toView;
+    self.dsl_interactiveAnimator.toView = dsl_transition_toView;
 }
 
 - (CGRect)dsl_transition_fromRect
 {
-    return self.dsl_animatedTransitioning.fromRect;
+    return self.dsl_interactiveAnimator.fromRect;
 }
 
 - (void)setDsl_transition_fromRect:(CGRect)dsl_transition_fromRect
 {
-    self.dsl_animatedTransitioning.fromRect = dsl_transition_fromRect;
+    self.dsl_interactiveAnimator.fromRect = dsl_transition_fromRect;
 }
 
 - (CGSize)dsl_transition_size
 {
-    return self.dsl_animatedTransitioning.size;
+    return self.dsl_interactiveAnimator.size;
 }
 
 - (void)setDsl_transition_size:(CGSize)dsl_transition_size
 {
-    self.dsl_animatedTransitioning.size = dsl_transition_size;
+    self.dsl_interactiveAnimator.size = dsl_transition_size;
 }
 
 - (CGFloat)dsl_transition_width
 {
-    return self.dsl_animatedTransitioning.width;
+    return self.dsl_interactiveAnimator.width;
 }
 
 - (void)setDsl_transition_width:(CGFloat)dsl_transition_width
 {
-    self.dsl_animatedTransitioning.width = dsl_transition_width;
+    self.dsl_interactiveAnimator.width = dsl_transition_width;
 }
 
 - (CGFloat)dsl_transition_height
 {
-    return self.dsl_animatedTransitioning.height;
+    return self.dsl_interactiveAnimator.height;
 }
 
 - (void)setDsl_transition_height:(CGFloat)dsl_transition_height
 {
-    self.dsl_animatedTransitioning.height = dsl_transition_height;
+    self.dsl_interactiveAnimator.height = dsl_transition_height;
 }
 
 - (CGFloat)dsl_transition_scale
 {
-    return self.dsl_animatedTransitioning.scale;
+    return self.dsl_interactiveAnimator.scale;
 }
 
 - (void)setDsl_transition_scale:(CGFloat)dsl_transition_scale
 {
-    self.dsl_animatedTransitioning.scale = dsl_transition_scale;
+    self.dsl_interactiveAnimator.scale = dsl_transition_scale;
 }
 
 - (void)dsl_transition_setFromView:(UIView *)fromView toView:(UIView *)toView
@@ -129,8 +129,8 @@
 - (void)dsl_presentViewController:(UIViewController *)viewController animated:(BOOL)flag completion:(void (^)(void))completion
 {
     if (viewController.dsl_transitionType != DSLTransitionTypeNone) {
-        viewController.transitioningDelegate = viewController.dsl_animatedTransitioning;
-        viewController.dsl_animatedTransitioning.presentSenderViewController = self;
+        viewController.transitioningDelegate = viewController.dsl_interactiveAnimator;
+        viewController.dsl_interactiveAnimator.presentSenderViewController = self;
         viewController.modalPresentationStyle = UIModalPresentationFullScreen;
     } else {
         if ([viewController.transitioningDelegate isKindOfClass:[VCInteractiveAnimator class]]) {

@@ -133,7 +133,7 @@
     switch (pan.state) {
         case UIGestureRecognizerStateBegan:
         {
-            _nextVC.dsl_animatedTransitioning.isInteractive = YES;
+            _nextVC.dsl_interactiveAnimator.isInteractive = YES;
             [self presentViewController:_nextVC animated:YES completion:nil];
         }
             break;
@@ -142,9 +142,9 @@
             CGPoint translation = [pan translationInView:pan.view];
             CGFloat percent = translation.x / 250.0;
             if (percent >= 1) {
-                [_nextVC.dsl_animatedTransitioning finishInteractiveTransition];
+                [_nextVC.dsl_interactiveAnimator finishInteractiveTransition];
             } else {
-                [_nextVC.dsl_animatedTransitioning updateInteractiveTransition:percent];
+                [_nextVC.dsl_interactiveAnimator updateInteractiveTransition:percent];
             }
         }
             break;
@@ -154,11 +154,11 @@
             CGPoint translation = [pan translationInView:pan.view];
             CGFloat percent = translation.x / 250.0;
             if (percent > 0.50) {
-                [_nextVC.dsl_animatedTransitioning finishInteractiveTransition];
+                [_nextVC.dsl_interactiveAnimator finishInteractiveTransition];
             } else {
-                [_nextVC.dsl_animatedTransitioning cancelInteractiveTransition];
+                [_nextVC.dsl_interactiveAnimator cancelInteractiveTransition];
             }
-            _nextVC.dsl_animatedTransitioning.isInteractive = NO;
+            _nextVC.dsl_interactiveAnimator.isInteractive = NO;
         }
             break;
         default:

@@ -19,7 +19,7 @@
 /**
  转场动画控制器
  */
-@property (strong, nonatomic, readonly) VCInteractiveAnimator *dsl_animatedTransitioning;
+@property (strong, nonatomic, readonly) VCInteractiveAnimator *dsl_interactiveAnimator;
 
 /**
  type = 3 时有效
